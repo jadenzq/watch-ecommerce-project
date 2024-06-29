@@ -1,4 +1,10 @@
-# Configure the _application.properties_ file before starting the application
+# Follow the steps before starting the application
+
+## Create a local mysql database
+
+In command line, after logging to your mysql, type `create database watch_ecommerce_db;` to create the database
+
+## Configure the _application.properties_ file before starting the application
 
 Changes the `username` and `password` field to your local database username and password
 
