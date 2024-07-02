@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Admin Backend</title>
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+			crossorigin="anonymous"/>
+		<!-- <link th:href="@{/css/styles.css}" rel="stylesheet" /> -->
+	</head>
+	
+	<body>
+		<h1 class="text-center my-5">Admin Backend Page</h1>
+		
+		<div class="container">
+			
+			<div class="row justify-content-center" >
+				
+				<div class="col">
+					
+					<a class="btn btn-primary my-4" th:href="@{add/product}">Add New Product</a>
+					
+					<table class="w-100">
+						
+						<tr>
+							<th>ID</th>
+							<th>Image</th>
+							<th>Name</th>
+							<th>Colour</th>
+							<th>Collection</th>
+							<th>Plating</th>
+							<th>Weight</th>
+							<th>Price</th>
+							<th>Stock</th>
+							<th>Edit/Delete</th>
+						</tr>
+						
+						<tr th:each="product: ${products}">
+							
+							<td th:text="${product.id}"></td>
+							<td>
+								<img th:src="@{${product.imgUrl}}" width="100" />
+							</td>
+							<td th:text="${product.name}"></td>
+							<td th:text="${product.colour}"></td>
+							<td th:text="${product.collection}"></td>
+							<td th:text="${product.plating}"></td>
+							<td th:text="${product.weight}"></td>
+							<td th:text="${product.price}"></td>
+							<td th:text="${product.stock}"></td>
+							<td>
+								<a class="btn btn-primary" th:href="@{edit/product/{id} (id=${product.id})}">Edit</a>
+								<a class="btn btn-danger" th:href="@{delete/product/{id} (id=${product.id})}">Delete</a>
+							</td>
+							
+						</tr>
+						
+					</table>
+					
+				</div>
+				
+			</div>	
+			
+			
+		</div>
+		
+	</body>
+
+</html>

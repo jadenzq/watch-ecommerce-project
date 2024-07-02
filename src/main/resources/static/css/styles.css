@@ -4,3 +4,8 @@
 	box-shadow: 5px 5px 5px rgb(181, 181, 181);
 	background-color: aliceblue;
 }
+
+form {
+	padding: 20px 10px;
+	border-radius: 15px;
+}

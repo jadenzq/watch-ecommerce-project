@@ -15,14 +15,26 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="imgURL", nullable=false)
-	private String imgURL;
+	@Column(name="name", nullable=false)
+	private String name;
 	
-	@Column(name="title", nullable=false)
-	private String title;
-	
-	@Column(name="description", nullable=false)
+	@Column(name="description", nullable=false, columnDefinition="TEXT")
 	private String description;
+	
+	@Column(name="collection", nullable=false)
+	private String collection;
+	
+	@Column(name="colour", nullable=false)
+	private String colour;
+	
+	@Column(name="plating", nullable=false)
+	private String plating;
+	
+	@Column(name="weight", nullable=false)
+	private String weight;
+	
+	@Column(name="img_url", nullable=false)
+	private String imgUrl;
 	
 	@Column(name="price", nullable=false)
 	private Double price;
@@ -31,64 +43,121 @@ public class Product {
 	private Integer stock;
 
 	
-	public Product() {};
-	
-	public Product(String imgURL, String title, String description, Double price, Integer stock) {
+	public Product() {}
+
+
+	public Product(String name, String description, String collection, String colour, String plating, String weight,
+			String imgUrl, Double price, Integer stock) {
 		super();
-		this.imgURL = imgURL;
-		this.title = title;
+		this.name = name;
 		this.description = description;
+		this.collection = collection;
+		this.colour = colour;
+		this.plating = plating;
+		this.weight = weight;
+		this.imgUrl = imgUrl;
 		this.price = price;
 		this.stock = stock;
 	}
+
 
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getImgURL() {
-		return imgURL;
+
+	public String getName() {
+		return name;
 	}
 
-	public void setImgURL(String imgURL) {
-		this.imgURL = imgURL;
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 	public String getDescription() {
 		return description;
 	}
 
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+	public String getCollection() {
+		return collection;
+	}
+
+
+	public void setCollection(String collection) {
+		this.collection = collection;
+	}
+
+
+	public String getColour() {
+		return colour;
+	}
+
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
+
+	public String getPlating() {
+		return plating;
+	}
+
+
+	public void setPlating(String plating) {
+		this.plating = plating;
+	}
+
+
+	public String getWeight() {
+		return weight;
+	}
+
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
 
 	public Double getPrice() {
 		return price;
 	}
 
+
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
 
 	public Integer getStock() {
 		return stock;
 	}
 
+
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
-	
 	
 }

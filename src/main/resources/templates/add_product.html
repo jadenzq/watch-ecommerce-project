@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Admin Backend</title>
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+			crossorigin="anonymous"/>
+		<link th:href="@{/css/styles.css}" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<h1 class="text-center my-5">Add Product Page</h1>
+		
+		<div class="container">
+			
+			<div class="row justify-content-center">
+				
+				<div class="col-lg-8">
+				
+					<form th:action="@{/admin/save/product}" th:object="${productDto}" enctype="multipart/form-data" method="post">
+						
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" class="form-control" th:field="*{name}">
+						</div>
+						
+						<div class="form-group">
+							<label for="description">Description</label>
+							<textarea class="form-control" th:field="*{description}"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="colour">Colour</label>
+							<input type="text" class="form-control" th:field="*{colour}">
+						</div>
+						
+						<div class="form-group">
+							<label for="collection">Collection</label>
+							<input type="text" class="form-control" th:field="*{collection}">
+						</div>
+						
+						<div class="form-group">
+							<label for="plating">Plating</label>
+							<input type="text" class="form-control" th:field="*{plating}">
+						</div>
+						
+						<div class="form-group">
+							<label for="weight">Weight</label>
+							<input type="text" class="form-control" th:field="*{weight}">
+						</div>
+						
+						<div class="form-group">
+							<label for="price">Price</label>
+							<input type="number" class="form-control" th:field="*{price}">
+						</div>
+						
+						<div class="form-group">
+							<label for="stock">Stock</label>
+							<input type="number" class="form-control" th:field="*{stock}">
+						</div>
+						
+						<div class="form-group">
+							<label for="imgFile">Image File</label>
+							<input type="file" class="form-control-file" th:field="*{imgFile}">
+						</div>
+						
+						<button type="submit" class="btn btn-primary">Submit</button>
+						
+					</form>
+				
+				</div>
+		
+			</div>
+		
+		</div>
+		
+	</body>
+
+</html>
