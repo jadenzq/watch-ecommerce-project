@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.entity.Product;
@@ -50,13 +52,12 @@ public class AdminProductController {
 	
 	// saveNewProduct(@ModelAttribute Product product){productService.save(model)}
 	@PostMapping("/save/product")
-	public String saveNewProduct(@ModelAttribute("productDto") ProductDto productDto) {
+	public String saveNewProduct(@ModelAttribute("productDto") ProductDto productDto,
+			@RequestParam("image") ArrayList<MultipartFile> images) {
 		
 		// store image file
-		MultipartFile image = productDto.getImgFile();
-		String storageFileName = image.getOriginalFilename();
+		ArrayList<String> imageFilenames = new ArrayList<>();		
 		String imgUploadDir = "src/main/resources/static/images/";
-		
 		
 		try {
 			Path uploadPath = Paths.get(imgUploadDir);
@@ -66,9 +67,17 @@ public class AdminProductController {
 				Files.createDirectories(uploadPath);
 			}
 			
-			try (InputStream inputStream = image.getInputStream()){
-				Files.copy(inputStream, Paths.get(imgUploadDir + storageFileName),
-						StandardCopyOption.REPLACE_EXISTING);
+			try {
+				
+				for(MultipartFile image : images) {
+					imageFilenames.add(image.getOriginalFilename());
+					InputStream inputStream = image.getInputStream();
+					Files.copy(inputStream, Paths.get(imgUploadDir + image.getOriginalFilename()),
+							StandardCopyOption.REPLACE_EXISTING);
+				}
+
+			} catch (Exception ex) {
+				System.out.println("Exception: " + ex.getMessage());
 			}
 			
 		} catch (Exception ex) {
@@ -77,7 +86,7 @@ public class AdminProductController {
 		
 		// copy inputs from form to a product instance
 		Product product = new Product();
-		product.setImgFilename(storageFileName);
+		product.setImgFilenames(imageFilenames);
 		product.setCollection(productDto.getCollection());
 		product.setDescription(productDto.getDescription());
 		product.setPrice(productDto.getPrice());

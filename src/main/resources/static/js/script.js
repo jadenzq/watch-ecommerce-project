@@ -6,7 +6,7 @@ const stockInput = document.getElementById("stock");
 const stockHelpBlock = document.getElementById("stockHelpBlock");
 const descriptionInput = document.getElementById("description");
 const descriptionHelpBlock = document.getElementById("descriptionHelpBlock");
-const imgFileInput = document.getElementById("imgFile");
+/* const imgFileInput = document.getElementById("imgFile"); */
 const submitBtn = document.getElementById("submit");
 
 
@@ -39,13 +39,14 @@ const checkDescription = (str) => {
 	}
 };
 
+/* 
 const checkImgFile = (filename) => {
 	
 	const pattern = /\.(jpg|jpeg|png)$/i;
 
 	return filename.match(pattern);
 };
-
+*/
 
 submitBtn.addEventListener("click", (event) => {
   
@@ -53,14 +54,15 @@ submitBtn.addEventListener("click", (event) => {
   const validPrice = checkTwoDecimalPlaces(priceInput.value);
   const validStock = checkInteger(stockInput.value);
   const validDescription = checkDescription(descriptionInput.value);
-  const validImgFileInput = checkImgFile(imgFileInput.files[0].name);
+  /* const validImgFileInput = checkImgFile(imgFileInput.files[0].name); */
   
-  if (!validWeight || !validPrice || !validStock || !validDescription || !validImgFileInput){
+  if (!validWeight || !validPrice || !validStock || !validDescription /* || !validImgFileInput */){
   	event.preventDefault();
-  	
+  	/* 
   	if (!validImgFileInput){
 		alert("Image file must .jpeg .jpg .png only");
 	}
+	 */
   }
 
 });

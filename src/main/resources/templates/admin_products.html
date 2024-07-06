@@ -38,7 +38,7 @@
 							
 							<th scope="row" th:text="${product.id}"></th>
 							<td>
-								<img th:src="@{'/images/' + ${product.imgFilename}}" width="100" />
+								<img th:src="@{'/images/' + ${product.imgFilenames[0]}}" width="100" />
 							</td>
 							<td th:text="${product.collection}"></td>
 							<td th:text="${product.colour}"></td>

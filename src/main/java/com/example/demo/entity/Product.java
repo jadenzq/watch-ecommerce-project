@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.util.ArrayList;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +33,7 @@ public class Product {
 	private Double weight;
 	
 	@Column(name="img_filename", nullable=false)
-	private String imgFilename;
+	private ArrayList<String> imgFilenames;
 	
 	@Column(name="price", nullable=false)
 	private Double price;
@@ -43,20 +45,20 @@ public class Product {
 	public Product() {}
 
 
-	public Product(String description, String collection, String colour, String plating, Double weight,
-			String imgFilename, Double price, Integer stock) {
+	public Product(String collection, String description, String colour, String plating, Double weight,
+			ArrayList<String> imgFilenames, Double price, Integer stock) {
 		super();
-		this.description = description;
 		this.collection = collection;
+		this.description = description;
 		this.colour = colour;
 		this.plating = plating;
 		this.weight = weight;
-		this.imgFilename = imgFilename;
+		this.imgFilenames = imgFilenames;
 		this.price = price;
 		this.stock = stock;
 	}
 
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -64,15 +66,6 @@ public class Product {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 
@@ -83,6 +76,16 @@ public class Product {
 
 	public void setCollection(String collection) {
 		this.collection = collection;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 
@@ -116,13 +119,13 @@ public class Product {
 	}
 
 
-	public String getImgFilename() {
-		return imgFilename;
+	public ArrayList<String> getImgFilenames() {
+		return imgFilenames;
 	}
 
 
-	public void setImgFilename(String imgFilename) {
-		this.imgFilename = imgFilename;
+	public void setImgFilenames(ArrayList<String> imgFilenames) {
+		this.imgFilenames = imgFilenames;
 	}
 
 
@@ -144,5 +147,7 @@ public class Product {
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
+	
+	
 	
 }

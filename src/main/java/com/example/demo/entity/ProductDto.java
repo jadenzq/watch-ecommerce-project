@@ -1,10 +1,7 @@
 package com.example.demo.entity;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class ProductDto {
 	
-	private MultipartFile imgFile;
 	private String description;
 	private Double price;
 	private Integer stock;
@@ -15,10 +12,9 @@ public class ProductDto {
 	
 	public ProductDto() {}
 
-	public ProductDto(MultipartFile imgFile, String description, Double price, Integer stock,
+	public ProductDto(String description, Double price, Integer stock,
 			String collection, String colour, String plating, Double weight) {
 		super();
-		this.imgFile = imgFile;
 		this.description = description;
 		this.price = price;
 		this.stock = stock;
@@ -26,14 +22,6 @@ public class ProductDto {
 		this.colour = colour;
 		this.plating = plating;
 		this.weight = weight;
-	}
-
-	public MultipartFile getImgFile() {
-		return imgFile;
-	}
-
-	public void setImgFile(MultipartFile imgFile) {
-		this.imgFile = imgFile;
 	}
 
 	public String getDescription() {
