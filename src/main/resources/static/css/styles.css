@@ -4,6 +4,8 @@
 	--mint: #B6EADA;
 	--navy-blue: #301E67;
 	--blue: #5B8FB9;
+	--input-bg: rgb(235, 237, 237);
+	--dark-gray: rgb(45, 45, 45);
 }
 
 * {
@@ -21,7 +23,7 @@ table {
 }
 
 form {
-	background-color: rgb(45, 45, 45);
+	background-color: var(--dark-gray);
 	padding: 20px 50px;
 	border-radius: 15px;
 }
@@ -33,7 +35,7 @@ label {
 input:not(input[type="file"]),
 textarea,
 select {
-	background-color: rgb(235, 237, 237) !important;
+	background-color: var(--input-bg) !important;
 }
 
 input:not(input[type="file"]):focus,
@@ -46,10 +48,6 @@ textarea {
 	min-height: 100px;
 }
 
-.btn-mint{
-	background-color: var(--mint);
-}
-
 .product-card {
 	border: none;
 	border-radius: 12px;
@@ -57,8 +55,47 @@ textarea {
 	background-color: aliceblue;
 }
 
-/* overwriting bootstrap clas */
+/* overwriting bootstrap classes */
 .is-invalid,
 .is-valid {
 	border-width: 3px;
+}
+
+
+/* self-defined classes */
+.img-block{
+	border: 2px dashed var(--input-bg);
+	background-color: var(--dark-gray);
+	min-height: 100px;
+	padding: 0;
+	border-radius: 5px;
+	color: var(--input-bg);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.img-block-description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.img-block-text {
+	font-size: 16px;
+}
+
+.img-block-icon {
+	font-size: 30px;
+}
+
+.img-block-display {
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.btn-mint{
+	background-color: var(--mint);
 }
