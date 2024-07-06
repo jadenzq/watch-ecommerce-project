@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -54,11 +55,11 @@ public class AdminProductController {
 		// store image file
 		MultipartFile image = productDto.getImgFile();
 		String storageFileName = image.getOriginalFilename();
-		String imgDir = "/public/images/";
+		String imgUploadDir = "src/main/resources/static/images/";
 		
 		
 		try {
-			Path uploadPath = Paths.get(imgDir);
+			Path uploadPath = Paths.get(imgUploadDir);
 			
 			// create directory to store image
 			if(!Files.exists(uploadPath)) {
@@ -66,7 +67,7 @@ public class AdminProductController {
 			}
 			
 			try (InputStream inputStream = image.getInputStream()){
-				Files.copy(inputStream, Paths.get(imgDir + storageFileName),
+				Files.copy(inputStream, Paths.get(imgUploadDir + storageFileName),
 						StandardCopyOption.REPLACE_EXISTING);
 			}
 			
@@ -76,12 +77,11 @@ public class AdminProductController {
 		
 		// copy inputs from form to a product instance
 		Product product = new Product();
-		product.setImgUrl(imgDir + storageFileName);
-		product.setName(productDto.getName());
+		product.setImgFilename(storageFileName);
+		product.setCollection(productDto.getCollection());
 		product.setDescription(productDto.getDescription());
 		product.setPrice(productDto.getPrice());
 		product.setStock(productDto.getStock());
-		product.setCollection(productDto.getCollection());
 		product.setColour(productDto.getColour());
 		product.setPlating(productDto.getPlating());
 		product.setWeight(productDto.getWeight());
@@ -89,6 +89,12 @@ public class AdminProductController {
 		// save product to database
 		productService.saveNewProduct(product);
 			
+		return "redirect:/admin/products";
+	}
+	
+	@GetMapping("/delete/product/{id}")
+	public String deleteProduct(@PathVariable("id") Long id ) {
+		productService.deleteProductById(id);
 		return "redirect:/admin/products";
 	}
 }

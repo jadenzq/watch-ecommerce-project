@@ -15,14 +15,11 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="name", nullable=false)
-	private String name;
+	@Column(name="collection", nullable=false)
+	private String collection;
 	
 	@Column(name="description", nullable=false, columnDefinition="TEXT")
 	private String description;
-	
-	@Column(name="collection", nullable=false)
-	private String collection;
 	
 	@Column(name="colour", nullable=false)
 	private String colour;
@@ -31,10 +28,10 @@ public class Product {
 	private String plating;
 	
 	@Column(name="weight", nullable=false)
-	private String weight;
+	private Double weight;
 	
-	@Column(name="img_url", nullable=false)
-	private String imgUrl;
+	@Column(name="img_filename", nullable=false)
+	private String imgFilename;
 	
 	@Column(name="price", nullable=false)
 	private Double price;
@@ -46,16 +43,15 @@ public class Product {
 	public Product() {}
 
 
-	public Product(String name, String description, String collection, String colour, String plating, String weight,
-			String imgUrl, Double price, Integer stock) {
+	public Product(String description, String collection, String colour, String plating, Double weight,
+			String imgFilename, Double price, Integer stock) {
 		super();
-		this.name = name;
 		this.description = description;
 		this.collection = collection;
 		this.colour = colour;
 		this.plating = plating;
 		this.weight = weight;
-		this.imgUrl = imgUrl;
+		this.imgFilename = imgFilename;
 		this.price = price;
 		this.stock = stock;
 	}
@@ -69,17 +65,6 @@ public class Product {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 
 	public String getDescription() {
 		return description;
@@ -121,23 +106,23 @@ public class Product {
 	}
 
 
-	public String getWeight() {
+	public Double getWeight() {
 		return weight;
 	}
 
 
-	public void setWeight(String weight) {
+	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
 
 
-	public String getImgUrl() {
-		return imgUrl;
+	public String getImgFilename() {
+		return imgFilename;
 	}
 
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setImgFilename(String imgFilename) {
+		this.imgFilename = imgFilename;
 	}
 
 

@@ -5,22 +5,20 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductDto {
 	
 	private MultipartFile imgFile;
-	private String name;
 	private String description;
 	private Double price;
 	private Integer stock;
 	private String collection;
 	private String colour;
 	private String plating;
-	private String weight;
+	private Double weight;
 	
 	public ProductDto() {}
 
-	public ProductDto(MultipartFile imgFile, String name, String description, Double price, Integer stock,
-			String collection, String colour, String plating, String weight) {
+	public ProductDto(MultipartFile imgFile, String description, Double price, Integer stock,
+			String collection, String colour, String plating, Double weight) {
 		super();
 		this.imgFile = imgFile;
-		this.name = name;
 		this.description = description;
 		this.price = price;
 		this.stock = stock;
@@ -36,14 +34,6 @@ public class ProductDto {
 
 	public void setImgFile(MultipartFile imgFile) {
 		this.imgFile = imgFile;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getDescription() {
@@ -94,13 +84,15 @@ public class ProductDto {
 		this.plating = plating;
 	}
 
-	public String getWeight() {
+	public Double getWeight() {
 		return weight;
 	}
 
-	public void setWeight(String weight) {
+	public void setWeight(Double weight) {
 		this.weight = weight;
 	}
+
+	
 
 	
 	
