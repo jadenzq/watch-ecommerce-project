@@ -10,19 +10,21 @@
 	</head>
 	
 	<body>
-		<h1>All of our watches</h1>
+		<h1 class="text-center my-5">All of our watches</h1>
 		
 		<div class="container">
 			
 			<div class="row" >
 				
-				<div class="col-sm-3 col-lg-3">
-					
-					<div class="card product-card">
-						<img class="card-img" src="images/blue-lime-01.png" />
+				<div class="col-sm-6 col-lg-3" th:each="product : ${products}">
+						
+					<!-- start with @{images/...} -->
+					<div class="card text-white d-flex justify-content-center align-items-center product-card">
+						<img class="card-img" th:src="@{'/images/' + ${product.imgFilenames[0]}}" width="100" />
 					</div>
-					
+						
 				</div>
+				
 				
 			</div>	
 			
