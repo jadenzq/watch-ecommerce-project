@@ -110,21 +110,30 @@ public class AdminProductController {
 	
 	@GetMapping("/edit/product/{id}")
 	public String editProduct(@PathVariable("id") Long id, Model model) {
-		ProductDto productDto = new ProductDto();
 		Product product = productService.getProductById(id);
-		productDto.setProduct(product);
 		model.addAttribute("product", product);
 		return "edit_product";
 	}
 	
 	
-	/*
 	@PostMapping("/update/product")
-	public String saveNewProduct(@ModelAttribute("productDto") ProductDto productDto,
-			@RequestParam("image") ArrayList<MultipartFile> images) {
+	public String updateProduct(@ModelAttribute("product") Product product,
+			@RequestParam("image1") MultipartFile image1,
+			@RequestParam("image2") MultipartFile image2,
+			@RequestParam("image3") MultipartFile image3,
+			@RequestParam("image4") MultipartFile image4) {
 		
 		// store image file
-		ArrayList<String> imageFilenames = new ArrayList<>();		
+		ArrayList<String> oldImageFilenames = product.getImgFilenames();
+		ArrayList<MultipartFile> imgFiles = new ArrayList<>();
+		
+		// appending image files into a list
+		imgFiles.add(image1);
+		imgFiles.add(image2);
+		imgFiles.add(image3);
+		imgFiles.add(image4);
+		
+		
 		String imgUploadDir = "src/main/resources/static/images/";
 		
 		try {
@@ -137,11 +146,14 @@ public class AdminProductController {
 			
 			try {
 				
-				for(MultipartFile image : images) {
-					imageFilenames.add(image.getOriginalFilename());
-					InputStream inputStream = image.getInputStream();
-					Files.copy(inputStream, Paths.get(imgUploadDir + image.getOriginalFilename()),
-							StandardCopyOption.REPLACE_EXISTING);
+				for(int i=1; i<=4; i++) { // loops 4 times
+					
+//					if ())
+//					
+//					imageFilenames.add(image.getOriginalFilename());
+//					InputStream inputStream = image.getInputStream();
+//					Files.copy(inputStream, Paths.get(imgUploadDir + image.getOriginalFilename()),
+//							StandardCopyOption.REPLACE_EXISTING);
 				}
 
 			} catch (Exception ex) {
@@ -168,5 +180,4 @@ public class AdminProductController {
 			
 		return "redirect:/admin/products";
 	}
-	*/
 }

@@ -20,7 +20,7 @@
 				
 				<div class="col-lg-8">
 				
-					<form th:action="@{/admin/save/product}" th:object="${product}" enctype="multipart/form-data" method="post">
+					<form th:action="@{/admin/update/product}" th:object="${product}" enctype="multipart/form-data" method="post">
 						
 						<div class="form-group row my-4">
 							<label for="collection" class="col-sm-4 col-form-label">Collection</label>
@@ -97,7 +97,7 @@
 									<span class="img-block-text">Upload Image 1</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
-								<input type="file" id="img1" name="image" accept="image/png" hidden>
+								<input type="file" id="img1" name="image1" accept="image/png" hidden>
 								<img class="img-block-display" id="img-block-display-1"
 									th:src="@{'/images/' + ${product.imgFilenames[0]}}" />
 							</label>
@@ -107,7 +107,7 @@
 									<span class="img-block-text">Upload Image 2</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
-								<input type="file" id="img2" name="image" accept="image/png" hidden>
+								<input type="file" id="img2" name="image2" accept="image/png" hidden>
 								<img class="img-block-display" id="img-block-display-2"
 									th:src="@{'/images/' + ${product.imgFilenames[1]}}" />
 							</label>
@@ -117,7 +117,7 @@
 									<span class="img-block-text">Upload Image 3</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
-								<input type="file" id="img3" name="image" accept="image/png" hidden>
+								<input type="file" id="img3" name="image3" accept="image/png" hidden>
 								<img class="img-block-display" id="img-block-display-3"
 									th:src="@{'/images/' + ${product.imgFilenames[2]}}" />
 							</label>
@@ -127,7 +127,7 @@
 									<span class="img-block-text">Upload Image 4</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
-								<input type="file" id="img4" name="image" accept="image/png" hidden>
+								<input type="file" id="img4" name="image4" accept="image/png" hidden>
 								<img class="img-block-display" id="img-block-display-4"
 									th:src="@{'/images/' + ${product.imgFilenames[3]}}" />
 							</label>
