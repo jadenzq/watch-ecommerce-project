@@ -15,33 +15,63 @@
 	  	<div class="row">
             <div class="product-description">
             	<div class="card">
-			      <h2 th:text="${product.collection}"></h2>
-				  <h3 th:text="${product.colour}"></h3>
-				  <p th:text="${product.description}"></p>
+			      <h2 th:text="${currentProduct.collection}"></h2>
+				  <h3 th:text="${currentProduct.colour}"></h3>
+				  <p th:text="${currentProduct.description}"></p>
 	   			</div>
 	   		</div>
 	   		<div class="product-image">
-            	<div class="card">
-            		<img class="card-img" th:src="@{'/images/' + ${product.imgFilenames[0]}}" alt="Product Image">
-	   			</div>
+				<div class="gallery">
+			        <input type="radio" name="gallery" id="img1" checked>
+			        <input type="radio" name="gallery" id="img2">
+			        <input type="radio" name="gallery" id="img3">
+			        <input type="radio" name="gallery" id="img4">
+
+			        <!-- Navigation buttons for each image -->
+			        <label for="img4" class="left nav1">&#8592;</label>
+			        <label for="img2" class="right nav1">&#8594;</label>
+			        
+			        <label for="img1" class="left nav2">&#8592;</label>
+			        <label for="img3" class="right nav2">&#8594;</label>
+			        
+			        <label for="img2" class="left nav3">&#8592;</label>
+			        <label for="img4" class="right nav3">&#8594;</label>
+			        
+			        <label for="img3" class="left nav4">&#8592;</label>
+			        <label for="img1" class="right nav4">&#8594;</label>
+
+<!--					<img class="card-img" id="image1" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
+<!--			        <img class="card-img" id="image2" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
+<!--					<img class="card-img" id="image3" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
+<!--					<img class="card-img" id="image4" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
+						<img class="card-img" id="image1" src="/images/blue-lime-01.png" alt="Product Image">
+				        <img class="card-img" id="image2" src="/images/blue-lime-02.png" alt="Product Image">
+						<img class="card-img" id="image3" src="/images/blue-lime-03.png" alt="Product Image">
+						<img class="card-img" id="image4" src="/images/blue-lime-04.png" alt="Product Image">
+			    </div>
 	   		</div>
 	   		<div class="other-product">
             	<div class="card">
 					<div class="product-list">
-						<ul th:each="product: ${products}">
-							<li><img th:src="@{'/images/' + ${product.imgFilenames[0]}}"></li>
-						</ul>
+						<div class="current-product-item">
+							<img th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}"  alt="Product Image">
+				        </div>
+						<tr th:each="product: ${products}" th:if="${product.id!=currentProduct.id}">
+						<div class="other-product-item">
+							<a th:href="@{'/product/detail/' + ${product.id}}">
+								<img th:src="@{'/images/' + ${product.imgFilenames[0]}}"  alt="Product Image"></a>
+				        </div>
+						</tr>
 					</div>
 					<h2>
 						<span>Product price: </span>
-		                <span th:text="${product.price}"></span>
+		                <span th:text="${currentProduct.price}"></span>
 					</h2>
 					<h2>
-					    <span th:text="${product.stock}"></span>
+					    <span th:text="${currentProduct.stock}"></span>
 						<span>Left </span>
 					</h2>
-				    <addButton>Add to Cart</addButton>
-				    <purchaseButton>Purchase Now</purchaseButton>
+				    <a class="purchaseButton" th:href="@{/checkout}">Purchase Now</a>
 	   			</div>
 	   		</div>
 	   	</div>
@@ -55,19 +85,19 @@
 			    	<ul class="product_content">
 						<li>
 							Collection
-							<span th:text="${product.collection}"></span>
+							<span th:text="${currentProduct.collection}"></span>
 						</li>
 						<li>
 							Colour
-							<span th:text="${product.colour}"></span>
+							<span th:text="${currentProduct.colour}"></span>
 						</li>
 						<li>
 							Plating
-							<span th:text="${product.plating}"></span>
+							<span th:text="${currentProduct.plating}"></span>
 						</li>
 						<li>
 							Weight
-							<span th:text="${product.weight}"></span>
+							<span th:text="${currentProduct.weight}"></span>
 						</li>
 					</ul>
 					
@@ -116,29 +146,20 @@
 				</div>
 			</div>
 	   		<div class="product_more">
-	          		<h2>You May Also Like</h2>
-				<div class="card">
-					<img src="/images/blue-lime-01.png" alt="Product Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Ice Holiday</h5>
-                        <p class="card-text">Flashy Pink</p>
-                    </div>
-					<div class="card-body">
-                        <h2 "${product.price}"></h2>
-						<addButton>Add to Cart</addButton>
-                    </div>
-				</div>
-				<div class="card">
-					<img src="/images/blue-lime-01.png" alt="Product Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Ice Holiday</h5>
-                        <p class="card-text">Flashy Pink</p>
-                    </div>
-					<div class="card-body">
-                        <h2 "${product.price}"></h2>
-						<addButton>Add to Cart</addButton>
-                    </div>
-				</div>
+          		<h2>You May Also Like</h2>
+					<tr th:each="product, productStat: ${products}" th:if="${product.id!=currentProduct.id}" th:unless="${productStat.count>4}">
+						<div class="card" >
+							<img th:src="@{'/images/' + ${product.imgFilenames[0]}}"  alt="Product Image">
+			                <div class="card-body">
+								<h2 class="card-title" th:text="${product.collection}"></h2>
+								<h3 class="card-text" th:text="${product.colour}"></h3>
+			                </div>
+							<div class="card-body">
+			                    <h2 "${product.price}"></h2>
+								<a class="purchaseButton" th:href="@{/checkout}">Purchase Now</a>
+			                </div>
+						</div>
+					</tr>
 	   		</div>
 		</div>
 		
@@ -149,26 +170,20 @@
 				<div classs="column">
 					<div class="others-card">
 						<div class="othersCard-column">
-							<img class="card-img" src="/images/delivery.png" alt="Others Image">
+							<img class="card-img" src="/icon/delivery.png" alt="Others Image">
 							<p>Free and Quick Delivery</p>
 						</div>
 						<div class="othersCard-column">
-							<img class="card-img" src="/images/warranty.png" alt="Others Image">
+							<img class="card-img" src="/icon/warranty.png" alt="Others Image">
 							<p>2 Years Warranty</p>					
 						</div>
 						<div class="othersCard-column">
-							<img class="card-img" src="/images/refund.png" alt="Others Image">
+							<img class="card-img" src="/icon/refund.png" alt="Others Image">
 							<p>Satisfied Or Refund</p>					
 						</div>
 				  	</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="product-container">
-			<tr th:each="product: ${products}">
-				<td th:text="${product.colour}"></td>
-			</tr>
 		</div>
 	</body>
 </html>
