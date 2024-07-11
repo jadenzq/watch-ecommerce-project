@@ -32,21 +32,24 @@ public class Order {
 	
 	@Column(name = "state", nullable=false)
 	private String state;
+	
+	@Column(name = "product", nullable=false)
+	private Product product;
 
 	public Order() {}
 	
-	public Order(Long id, String firstName, String lastName, String phoneNumber, String deliveryAddress,
-			String postcode, String state) {
+	public Order(String firstName, String lastName, String phoneNumber, String deliveryAddress, String postcode,
+			String state, Product product) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.deliveryAddress = deliveryAddress;
 		this.postcode = postcode;
 		this.state = state;
+		this.product = product;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -102,5 +105,15 @@ public class Order {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
+	
 }
 

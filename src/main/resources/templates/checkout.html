@@ -51,7 +51,21 @@
 							<div class="page slidepage">
 								<div class="title">Review</div>
 								<div class="form-group">
-									<label>Order</label>
+									<table>
+										<tr>
+											<th>Product</th>
+											<th>Price</th>
+										</tr>
+										<tr>
+											<td>
+												<!--image-->
+											</td>
+											<td>
+												<span th:text="${order.product.category}"></span>
+												<span></span>
+											</td>
+										</tr>
+									</table>
 								<div class="form-group btns">
 									<button class="nextBtn next">Next</button>
 								</div>

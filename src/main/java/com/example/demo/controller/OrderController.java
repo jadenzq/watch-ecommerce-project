@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Order;
+import com.example.demo.entity.Product;
 import com.example.demo.service.OrderService;
 
 @Controller
@@ -28,9 +29,10 @@ public class OrderController {
 	}
 	
 	@GetMapping("/checkout")
-	public String createOrderForm(Model model) {
+	public String createOrderForm(@ModelAttribute("currentProduct") Product currentProduct, Model model) {
 		Order order = new Order();
 		model.addAttribute("order", order);
+		model.addAttribute("product", currentProduct);
 		return "checkout";
 	}
 	
