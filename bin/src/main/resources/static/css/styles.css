@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+	--mint: #B6EADA;
+	--navy-blue: #301E67;
+	--blue: #5B8FB9;
+	--input-bg: rgb(235, 237, 237);
+	--dark-gray: rgb(45, 45, 45);
+}
+
+* {
+	font-family: "Quicksand", sans-serif !important;
+	font-weight: 700 !important;
+}
+
+body {
+	background-color: black;
+	color: white;
+}
+
+table {
+	background-color: black !important;
+}
+
+form {
+	background-color: var(--dark-gray);
+	padding: 20px 50px;
+	border-radius: 15px;
+}
+
+label {
+	font-weight: 700;
+}
+
+input:not(input[type="file"]),
+textarea,
+select {
+	background-color: var(--input-bg) !important;
+}
+
+input:not(input[type="file"]):focus,
+textarea:focus,
+select:focus {
+	border-width: 3px;
+}
+
+textarea {
+	min-height: 100px;
+}
+
+.product-card {
+	border: 3px solid var(--mint);
+	border-radius: 12px;
+	background-color: black, var(--dark-gray);
+	min-width: 250px;
+	min-height: 300px;
+}
+
+/* overwriting bootstrap classes */
+.is-invalid,
+.is-valid {
+	border-width: 3px;
+}
+
+
+/* self-defined classes */
+.img-block{
+	border: 2px dashed var(--input-bg);
+	background-color: var(--dark-gray);
+	min-height: 100px;
+	padding: 0;
+	border-radius: 5px;
+	color: var(--input-bg);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.img-block-description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.img-block-text {
+	font-size: 16px;
+}
+
+.img-block-icon {
+	font-size: 30px;
+}
+
+.img-block-display {
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.btn-mint{
+	background-color: var(--mint);
+}

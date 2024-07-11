@@ -1,0 +1,103 @@
+#review-star{
+	margin-top: 2px;
+}
+
+#review-container{
+	background-color: #301e67;
+	color: white;
+	width: 50%;
+	border-radius: 3px;
+}
+
+#average-rating{
+	background-color: white;
+	margin: auto;
+	margin-top: 10px;
+	width: 96%;
+	border-radius: 5px;
+	color: #03001C;
+	
+}
+
+#review-table{
+	 border-top: none;
+	 border-bottom: 1px solid #ddd;
+	 color: white;
+	 font-size: 15px;
+}
+
+#review-section{
+	background-color: #5B8FB9;
+	border-radius: 5px;
+	margin: auto;
+}
+
+body{
+	font-family: 'Quicksand', sans-serif;
+	background-color: #03001C;
+}
+
+textarea{
+	resize: none;
+}
+
+.review-number{
+	font-size: 10px;
+}
+
+.review-date{
+	font-size: 7px;
+}
+
+.bold-text{
+	font-weight: bold;
+	font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.zcool-xiaowei-regular {
+  font-family: "ZCOOL XiaoWei", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.star-icon{
+	vertical-align: middle;
+}
+
+.blue{
+	background-color: #301e67;
+	width: 95%;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.star-rating{
+	float: left;
+	display: flex;
+    flex-direction: row-reverse;
+}
+
+.star-rating > input[type="radio"] {
+    display: none;
+}
+
+.star-rating > label {
+    cursor: pointer;
+    color: #ddd;
+    padding-left: 3px;
+}
+
+.star-rating > input[type="radio"]:checked ~ label, 
+.star-rating:not(:checked) > label:hover,
+.star-rating:not(:checked) > label:hover ~ label{
+    color: #ffc107;
+}
+
+.star-rating > input[type="radio"]:checked + label:hover, 
+.star-rating > input[type="radio"]:checked ~ label:hover,
+.star-rating > label:hover ~ input[type="radio"]:checked ~ label,
+.star-rating > input[type="radio"]:checked ~ label:hover ~ label{
+    color: #ffc107;
+}
