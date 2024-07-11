@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/login_register.css">
+	<script>
+	        function showMessage() {
+	            /*<![CDATA[*/
+	            var message = /*[[${message}]]*/ 'null';
+	            if (message !== 'null' && message !== '') {
+	                alert(message);
+	            }
+	            /*]]>*/
+	        }
+	    </script>
+</head>
+<body onload="showSuccessMessage()">
+    <section>
+        <div class="signin">
+            <div class="content">
+                <h2>Register</h2>
+                <form th:action="@{/register}" th:object="${user}" method="post">
+                    <div class="form">
+                        <div class="row">
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="firstName" th:field="*{firstName}" placeholder="First Name" required>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="lastName" th:field="*{lastName}" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="email" id="email" th:field="*{email}" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="telephone" th:field="*{telephone}" placeholder="Mobile No." required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="address" th:field="*{address}" placeholder="Address" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="postcode" th:field="*{postcode}" placeholder="Postcode" required>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="state" th:field="*{state}" placeholder="State" required>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="country" th:field="*{country}" placeholder="Country" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="text" id="username" th:field="*{username}" placeholder="Username" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <div class="inputBox">
+                                    <input type="password" id="password" th:field="*{password}" placeholder="Password" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="Register">
+                        </div>
+                    </div>
+                </form>
+				<div class="links">
+				     <span style="color: #fff;">Have an account? </span>
+				     <a th:href="@{/login}" style="color: #b6eada;">Login here</a>
+				   </div>
+				   <p style="color: red;" th:text="${error}" class="error"></p>
+			  </div>
+        </div>
+    </section>
+</body>
+</html>
