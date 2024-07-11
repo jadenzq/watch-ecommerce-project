@@ -44,6 +44,9 @@
       							</a>
       						</td>
       						<td th:text="${order.deliveryAddress + ', ' + order.postcode + ', ' + order.state}"></td>
+							<td>
+								<p th:text="${order.product?.collection}"></p>
+							</td>
       					</tr>
       				</tbody>
       			</table>

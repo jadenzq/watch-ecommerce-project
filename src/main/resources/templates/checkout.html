@@ -51,18 +51,22 @@
 							<div class="page slidepage">
 								<div class="title">Review</div>
 								<div class="form-group">
-									<table>
+									<table class="table table-dark">
 										<tr>
 											<th>Product</th>
+											<th>Category</th>
 											<th>Price</th>
 										</tr>
 										<tr>
 											<td>
-												<!--image-->
+												<img th:src="@{'/images/' + ${order.product?.imgFilenames[0]}}" width="100" />
 											</td>
 											<td>
-												<span th:text="${order.product.category}"></span>
-												<span></span>
+												<p th:text="${order.product?.collection}"></p>
+												
+											</td>
+											<td>
+												<p th:text="${order.product?.price}"></p>
 											</td>
 										</tr>
 									</table>

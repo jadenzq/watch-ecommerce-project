@@ -71,7 +71,7 @@
 					    <span th:text="${currentProduct.stock}"></span>
 						<span>Left </span>
 					</h2>
-				    <a class="purchaseButton" th:href="@{/checkout}">Purchase Now</a>
+				    <a class="purchaseButton" th:href="@{/checkout/{id} (id=${currentProduct.id})}">Purchase Now</a>
 	   			</div>
 	   		</div>
 	   	</div>
