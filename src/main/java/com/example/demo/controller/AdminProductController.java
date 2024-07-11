@@ -107,11 +107,65 @@ public class AdminProductController {
 		return "redirect:/admin/products";
 	}
 	
-	/*
+	
 	@GetMapping("/edit/product/{id}")
 	public String editProduct(@PathVariable("id") Long id, Model model) {
+		ProductDto productDto = new ProductDto();
 		Product product = productService.getProductById(id);
+		productDto.setProduct(product);
 		model.addAttribute("product", product);
+		return "edit_product";
+	}
+	
+	
+	/*
+	@PostMapping("/update/product")
+	public String saveNewProduct(@ModelAttribute("productDto") ProductDto productDto,
+			@RequestParam("image") ArrayList<MultipartFile> images) {
+		
+		// store image file
+		ArrayList<String> imageFilenames = new ArrayList<>();		
+		String imgUploadDir = "src/main/resources/static/images/";
+		
+		try {
+			Path uploadPath = Paths.get(imgUploadDir);
+			
+			// create directory to store image
+			if(!Files.exists(uploadPath)) {
+				Files.createDirectories(uploadPath);
+			}
+			
+			try {
+				
+				for(MultipartFile image : images) {
+					imageFilenames.add(image.getOriginalFilename());
+					InputStream inputStream = image.getInputStream();
+					Files.copy(inputStream, Paths.get(imgUploadDir + image.getOriginalFilename()),
+							StandardCopyOption.REPLACE_EXISTING);
+				}
+
+			} catch (Exception ex) {
+				System.out.println("Exception: " + ex.getMessage());
+			}
+			
+		} catch (Exception ex) {
+			System.out.println("Exception: " + ex.getMessage());
+		}
+		
+		// copy inputs from form to a product instance
+		Product product = new Product();
+		product.setImgFilenames(imageFilenames);
+		product.setCollection(productDto.getCollection());
+		product.setDescription(productDto.getDescription());
+		product.setPrice(productDto.getPrice());
+		product.setStock(productDto.getStock());
+		product.setColour(productDto.getColour());
+		product.setPlating(productDto.getPlating());
+		product.setWeight(productDto.getWeight());
+		
+		// save product to database
+		productService.saveNewProduct(product);
+			
 		return "redirect:/admin/products";
 	}
 	*/

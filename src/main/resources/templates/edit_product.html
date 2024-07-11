@@ -20,12 +20,12 @@
 				
 				<div class="col-lg-8">
 				
-					<form th:action="@{/admin/save/product}" th:object="${productDto}" enctype="multipart/form-data" method="post">
+					<form th:action="@{/admin/save/product}" th:object="${product}" enctype="multipart/form-data" method="post">
 						
 						<div class="form-group row my-4">
 							<label for="collection" class="col-sm-4 col-form-label">Collection</label>
 							<div class="col-sm-8">
-								<select class="form-control" th:field="*{collection}">
+								<select class="form-control" th:field="${product.collection}">
 									<option value="ice chrono" selected>Ice Chrono</option>
 									<option value="ice digit ultra">Ice Digit Ultra</option>
 									<option value="ice solar power">Ice Solar Power</option>
@@ -39,8 +39,8 @@
 						<div class="form-group row my-4">
 							<label for="description" class="col-sm-4 col-form-label">Description</label>
 							<div class="col-sm-8">
-								<textarea class="form-control" th:field="*{description}"></textarea>
-								<small id="descriptionHelpBlock" class="form-text text-muted">
+								<textarea class="form-control is-valid" th:field="${product.description}"></textarea>
+								<small id="descriptionHelpBlock" class="form-text valid-feedback">
 								  Must between 10 - 200 words count
 								</small>
 							</div>
@@ -49,22 +49,22 @@
 						<div class="form-group row my-4">
 							<label for="colour" class="col-sm-4 col-form-label">Colour</label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control" th:field="*{colour}">
+								<input type="text" class="form-control" th:field="${product.colour}">
 							</div>
 						</div>
 						
 						<div class="form-group row my-4">
 							<label for="plating" class="col-sm-4 col-form-label">Plating</label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control" th:field="*{plating}">
+								<input type="text" class="form-control" th:field="${product.plating}">
 							</div>
 						</div>
 						
 						<div class="form-group row my-4">
 							<label for="weight" class="col-sm-4 col-form-label">Weight (g)</label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control" th:field="*{weight}">
-								<small id="weightHelpBlock" class="form-text text-muted">
+								<input type="text" class="form-control is-valid" th:field="${product.weight}">
+								<small id="weightHelpBlock" class="form-text valid-feedback">
 								  Must be an integer or decimal to two points. eg. 220.80
 								</small>
 							</div>
@@ -73,8 +73,8 @@
 						<div class="form-group row my-4">
 							<label for="price" class="col-sm-4 col-form-label">Price (RM)</label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control" th:field="*{price}">
-								<small id="priceHelpBlock" class="form-text text-muted">
+								<input type="text" class="form-control is-valid" th:field="${product.price}">
+								<small id="priceHelpBlock" class="form-text valid-feedback">
 								  Must be an integer or decimal to two points. eg. 59.99
 								</small>
 							</div>
@@ -83,8 +83,8 @@
 						<div class="form-group row my-4">
 							<label for="stock" class="col-sm-4 col-form-label">Stock</label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control" th:field="*{stock}">
-								<small id="stockHelpBlock" class="form-text text-muted">
+								<input type="text" class="form-control is-valid" th:field="${product.stock}">
+								<small id="stockHelpBlock" class="form-text valid-feedback">
 								  Must be an integer
 								</small>
 							</div>
@@ -92,40 +92,44 @@
 						
 						<div class="form-group row my-4">
 							
-							<label for="img1" class="col img-block mx-2" id="img-block-1">
-								<div class="img-block-description" id="img-block-description-1">
+							<label for="img1" class="col img-block mx-2 valid-img" id="img-block-1">
+								<div class="img-block-description" id="img-block-description-1" hidden>
 									<span class="img-block-text">Upload Image 1</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
 								<input type="file" id="img1" name="image" accept="image/png" hidden>
-								<img class="img-block-display" id="img-block-display-1" src="" />
+								<img class="img-block-display" id="img-block-display-1"
+									th:src="@{'/images/' + ${product.imgFilenames[0]}}" />
 							</label>
 							
-							<label for="img2" class="col img-block mx-2" id="img-block-2">
-								<div class="img-block-description" id="img-block-description-2">
+							<label for="img2" class="col img-block mx-2 valid-img" id="img-block-2">
+								<div class="img-block-description" id="img-block-description-2" hidden>
 									<span class="img-block-text">Upload Image 2</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
 								<input type="file" id="img2" name="image" accept="image/png" hidden>
-								<img class="img-block-display" id="img-block-display-2" src="" />
+								<img class="img-block-display" id="img-block-display-2"
+									th:src="@{'/images/' + ${product.imgFilenames[1]}}" />
 							</label>
 							
-							<label for="img3" class="col img-block mx-2" id="img-block-3">
-								<div class="img-block-description" id="img-block-description-3">
+							<label for="img3" class="col img-block mx-2 valid-img" id="img-block-3">
+								<div class="img-block-description" id="img-block-description-3" hidden>
 									<span class="img-block-text">Upload Image 3</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
 								<input type="file" id="img3" name="image" accept="image/png" hidden>
-								<img class="img-block-display" id="img-block-display-3" src="" />
+								<img class="img-block-display" id="img-block-display-3"
+									th:src="@{'/images/' + ${product.imgFilenames[2]}}" />
 							</label>
 							
-							<label for="img4" class="col img-block mx-2" id="img-block-4">
-								<div class="img-block-description" id="img-block-description-4">
+							<label for="img4" class="col img-block mx-2 valid-img" id="img-block-4">
+								<div class="img-block-description" id="img-block-description-4" hidden>
 									<span class="img-block-text">Upload Image 4</span>
 									<i class="bi bi-file-earmark-image img-block-icon"></i>
 								</div>
 								<input type="file" id="img4" name="image" accept="image/png" hidden>
-								<img class="img-block-display" id="img-block-display-4" src="" />
+								<img class="img-block-display" id="img-block-display-4"
+									th:src="@{'/images/' + ${product.imgFilenames[3]}}" />
 							</label>
 							
 						</div>
@@ -141,7 +145,7 @@
 		</div>
 		
 		<script th:src="@{/js/dynamic_form_validation.js}"></script>
-		<script th:src="@{/js/add_product_validation.js}"></script>
+		<script th:src="@{/js/edit_product_validation.js}"></script>
 		
 	</body>
 

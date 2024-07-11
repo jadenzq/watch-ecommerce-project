@@ -30,6 +30,16 @@ const imgBlockDisplay4 = document.getElementById("img-block-display-4");
 const submitBtn = document.getElementById("submit");
 
 
+const checkImgFileInput = () => {
+	
+	if (img1Input.files.length == 0 || img2Input.files.length == 0 || img3Input.files.length == 0 || img4Input.files.length == 0)  {
+		return null;
+	} else {
+		return true;
+	}
+}
+
+
 const checkInteger = (str) => {
 
 	const pattern = /^[1-9][0-9]*$/;
@@ -38,6 +48,7 @@ const checkInteger = (str) => {
 
 };
 
+
 const checkTwoDecimalPlaces = (str) => {
 
 	const pattern = /^[1-9][0-9]*([\.][0-9]{2})*$/;
@@ -45,6 +56,7 @@ const checkTwoDecimalPlaces = (str) => {
     return str.match(pattern);
 
 };
+
 
 const checkDescription = (str) => {
 	
@@ -58,21 +70,6 @@ const checkDescription = (str) => {
 		return true;
 	}
 };
-
-submitBtn.addEventListener("click", (event) => {
-  
-  const validWeight = checkTwoDecimalPlaces(weightInput.value);
-  const validPrice = checkTwoDecimalPlaces(priceInput.value);
-  const validStock = checkInteger(stockInput.value);
-  const validDescription = checkDescription(descriptionInput.value);
-  
-  if (!validWeight || !validPrice || !validStock || !validDescription /* || !validImgFileInput */){
-  	event.preventDefault();
-  	alert("Ensure you have entered every input fields and included all images!");
-  	
-  }
-
-});
 
 
 weightInput.addEventListener("keyup", (event) => {
@@ -94,6 +91,7 @@ weightInput.addEventListener("keyup", (event) => {
 	}
 });
 
+
 priceInput.addEventListener("keyup", (event) => {
 	
 	const validPrice = checkTwoDecimalPlaces(priceInput.value);
@@ -112,6 +110,7 @@ priceInput.addEventListener("keyup", (event) => {
 	    priceHelpBlock.classList.add("valid-feedback");
 	}
 });
+
 
 stockInput.addEventListener("keyup", (event) => {
 	
@@ -133,6 +132,7 @@ stockInput.addEventListener("keyup", (event) => {
 	}
 });
 
+
 descriptionInput.addEventListener("keyup", (event) => {
 	
 	const validDescription = checkDescription(descriptionInput.value);
@@ -152,35 +152,35 @@ descriptionInput.addEventListener("keyup", (event) => {
 	}
 });
 
+
 // update img-blocks to display images users uploaded
 img1Input.addEventListener("change", (event) => {
 	
-	imgBlock1.style.borderColor = "#00C000";
-	imgBlock1.style.borderStyle = "solid";
+	imgBlock1.classList.add("valid-img");
 	imgBlockDescription1.style.display = "none";
 	imgBlockDisplay1.src = URL.createObjectURL(event.target.files[0])
 });
 
+
 img2Input.addEventListener("change", (event) => {
 	
-	imgBlock2.style.borderColor = "#00C000";
-	imgBlock2.style.borderStyle = "solid";
+	imgBlock2.classList.add("valid-img");
 	imgBlockDescription2.style.display = "none";
 	imgBlockDisplay2.src = URL.createObjectURL(event.target.files[0])
 });
 
+
 img3Input.addEventListener("change", (event) => {
 	
-	imgBlock3.style.borderColor = "#00C000";
-	imgBlock3.style.borderStyle = "solid";
+	imgBlock3.classList.add("valid-img");
 	imgBlockDescription3.style.display = "none";
 	imgBlockDisplay3.src = URL.createObjectURL(event.target.files[0])
 });
 
+
 img4Input.addEventListener("change", (event) => {
 	
-	imgBlock4.style.borderColor = "#00C000";
-	imgBlock4.style.borderStyle = "solid";
+	imgBlock4.classList.add("valid-img");
 	imgBlockDescription4.style.display = "none";
 	imgBlockDisplay4.src = URL.createObjectURL(event.target.files[0])
 });
