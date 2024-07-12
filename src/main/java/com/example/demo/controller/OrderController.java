@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Order;
 import com.example.demo.entity.Product;
@@ -41,9 +39,12 @@ public class OrderController {
 		return "checkout";
 	}
 	
-	@PostMapping("/receipt")
-	public String saveOrder(@ModelAttribute("order") Order order) {
-		System.out.println(order.getProduct().getId());
+	@PostMapping("/after_checkout/{productId}")
+	public String saveOrder(@ModelAttribute("order") Order order,
+			@PathVariable("productId") Long productId) {
+		
+		Product product = productService.getProductById(productId);
+		order.setProduct(product);
 		orderService.saveOrder(order);
 		return "redirect:/receipt";
 	}

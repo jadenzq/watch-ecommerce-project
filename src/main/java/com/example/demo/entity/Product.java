@@ -47,11 +47,15 @@ public class Product {
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
 	private List<Review> review;
 	
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	private List<Order> order;
+	
+	
 	public Product() {}
 
-
+	
 	public Product(String collection, String description, String colour, String plating, Double weight,
-			ArrayList<String> imgFilenames, Double price, Integer stock, List<Review> review) {
+			ArrayList<String> imgFilenames, Double price, Integer stock, List<Review> review, List<Order> order) {
 		super();
 		this.collection = collection;
 		this.description = description;
@@ -62,9 +66,10 @@ public class Product {
 		this.price = price;
 		this.stock = stock;
 		this.review = review;
+		this.order = order;
 	}
 
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -162,5 +167,16 @@ public class Product {
 	public void setReview(List<Review> review) {
 		this.review = review;
 	}
+
+
+	public List<Order> getOrder() {
+		return order;
+	}
+
+
+	public void setOrder(List<Order> order) {
+		this.order = order;
+	}
+	
 	
 }

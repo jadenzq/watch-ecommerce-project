@@ -47,7 +47,7 @@
 			<div class="row justify-content-center align-items-center">
 				<div class="col-lg-8 col-md-8 col-sm-8 form-container ">
 					<div class="form-outer">
-						<form th:action="@{/receipt}" th:object="${order}" method="POST">
+						<form th:action="@{/after_checkout/{productId} (productId=${order.product?.id})}" th:object="${order}" method="POST">
 							<div class="page slidepage">
 								<div class="title">Review</div>
 								<div class="form-group">
