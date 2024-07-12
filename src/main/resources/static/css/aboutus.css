@@ -1,23 +1,20 @@
 body {
-	font-family: quicksand, sans-serif;
-	margin: 0;
+    font-family: quicksand, sans-serif;
+    margin: 0;
     padding: 0;
     background-color: #222;
     color: #fff;
 }
-
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 60px;
     background-color: #222;
 }
-
 h1 {
-	text-align: center;
-	color: #5b8fb9;
+    text-align: center;
+    color: #5b8fb9;
 }
-
 p {
     line-height: 1.6;
 }
@@ -28,88 +25,88 @@ p {
         flex: 1 0 100%;
     }
 }
-	
+
 * {
-	font-family: quicksand, sans-serif;
+  font-family: quicksand, sans-serif;
 }
 
 .text-blk {
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	line-height: 20px;
-	color: white;
-	font-size: 14px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 40px;
-	margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  line-height: 20px;
+  color: white;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 40px;
+  margin-left: 0px;
 }
 
 .responsive-container-block {
-	min-height: 75px;
-	height: fit-content;
-	width: 100%;
-	padding-top: 10px;
-	padding-right: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	display: flex;
-	flex-wrap: wrap;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-	justify-content: flex-start;
+  min-height: 75px;
+  height: fit-content;
+  width: 100%;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  justify-content: flex-start;
 }
 
 .responsive-container-block.bigContainer {
-	background-image: initial;
-	background-position-x: initial;
-	background-position-y: initial;
-	background-size: initial;
-	background-repeat-x: initial;
-	background-repeat-y: initial;
-	background-attachment: initial;
-	background-origin: initial;
-	background-clip: initial;
-	background-color: rgb(51, 51, 51);
-	padding-top: 10px;
-	padding-right: 20px;
-	padding-bottom: 10px;
-	padding-left: 20px;
-	margin: 0 0 0 0;
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgb(51, 51, 51);
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  margin: 0 0 0 0;
 }
 
 .responsive-container-block.Container {
-	max-width: 1320px;
-	align-items: center;
-	justify-content: center;
-	margin-top: 80px;
-	margin-right: auto;
-	margin-bottom: 80px;
-	margin-left: auto;
-	padding-top: 10px;
-	padding-right: 0px;
-	padding-bottom: 10px;
-	padding-left: 0px;
+  max-width: 1320px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  margin-right: auto;
+  margin-bottom: 80px;
+  margin-left: auto;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
 }
 
 .responsive-container-block.leftSide {
-	width: auto;
-	align-items: flex-start;
-	padding-top: 10px;
-	padding-right: 0px;
-	padding-bottom: 10px;
-	padding-left: 0px;
-	flex-direction: column;
-	position: static;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-bottom: 0px;
-	margin-left: auto;
-	max-width: 300px;
+  width: auto;
+  align-items: flex-start;
+  padding-top: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  flex-direction: column;
+  position: static;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  max-width: 300px;
 }
 
 .text-blk.heading {
@@ -188,13 +185,13 @@ p {
 
 
 .number6img {
-	position: absolute;
-	width: 25%;
-	margin-top: 40%;
-	margin-right: 0px;
-	margin-bottom: 18%;
-	margin-left: 75%;
-	height: 42%;
+  position: absolute;
+  width: 25%;
+  margin-top: 40%;
+  margin-right: 0px;
+  margin-bottom: 18%;
+  margin-left: 75%;
+  height: 42%;
 }
 
 .text-blk.subHeading {
@@ -203,9 +200,7 @@ p {
 }
 
 @media (max-width: 1024px) {
-  
   .responsive-container-block.Container {
     flex-direction: column-reverse;
   }
-
 }

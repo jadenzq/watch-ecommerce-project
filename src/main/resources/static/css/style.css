@@ -31,32 +31,6 @@ body {
     margin-right: 10px;
 }
 
-li a, .dropbtn {
-    color: white; /* Change text color to white */
-    text-align: center;
-    font-size: 16px;
-    padding: 12px 15px;
-    background-color: #b6eada; /* Match the background color */
-    text-decoration: none;
-    display: inline-block;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: #7AB2B2;
-    color: white;
-}
-
-li.dropdown {
-    overflow: hidden;
-}
-
-
-table, td {
-    font-size: 12px;
-    text-align: right;
-}
-
-
 
 footer {
     display: flex;
