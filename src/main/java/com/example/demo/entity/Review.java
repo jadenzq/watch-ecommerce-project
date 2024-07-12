@@ -6,14 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "review")
 
-public class Review {
-	
+public class Review{
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long reviewId;
@@ -26,14 +28,19 @@ public class Review {
 	
 	@Column(name="reviewDatetime", nullable=false)
 	private LocalDateTime reviewDatetime;
+	
+	@ManyToOne
+	@JoinColumn(name = "product_id")
+	private Product product;
 
 	public Review() {}
 	
-	public Review(int rating, String reviewContent, LocalDateTime reviewDatetime) {
+	public Review(int rating, String reviewContent, LocalDateTime reviewDatetime, Product product) {
 		super();
 		this.rating = rating;
 		this.reviewContent = reviewContent;
 		this.reviewDatetime = reviewDatetime;
+		this.product = product;
 	}
 	
 	public Long getReviewId() {
@@ -67,5 +74,12 @@ public class Review {
 	public void setReviewDatetime(LocalDateTime reviewDatetime) {
 		this.reviewDatetime = reviewDatetime;
 	}
-
+	
+	public Product getProduct() {
+		return product;
+	}
+	
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 }
