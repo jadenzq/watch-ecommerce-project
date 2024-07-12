@@ -6,6 +6,7 @@
 	--blue: #5B8FB9;
 	--input-bg: rgb(235, 237, 237);
 	--dark-gray: rgb(45, 45, 45);
+	--green: #00C000;
 }
 
 * {
@@ -99,4 +100,9 @@ textarea {
 
 .btn-mint{
 	background-color: var(--mint);
+}
+
+.valid-img {
+	border-color: var(--green);
+	border-style: solid;
 }

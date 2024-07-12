@@ -5,19 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
 	  <title>Product Page</title>
 	  <link th:href="@{/css/product_details.css}" rel="stylesheet" /> 
 	</head>
 	
 	<body>
+		<div th:replace="header"></div>
+		
 	  <div class="product-container">
 	  	<div class="row">
             <div class="product-description">
             	<div class="card">
-			      <h2 th:text="${currentProduct.collection}"></h2>
-				  <h3 th:text="${currentProduct.colour}"></h3>
+			      <h1 th:text="${currentProduct.collection}"></h1>
+				  <h2 th:text="${currentProduct.colour}"></h2>
 				  <p th:text="${currentProduct.description}"></p>
+				  <br>
+				  <a class="rateButton" th:href="@{/product}">Rate it</a>
 	   			</div>
 	   		</div>
 	   		<div class="product-image">
@@ -28,22 +32,53 @@
 			        <input type="radio" name="gallery" id="img4">
 
 			        <!-- Navigation buttons for each image -->
-			        <label for="img4" class="left nav1">&#8592;</label>
-			        <label for="img2" class="right nav1">&#8594;</label>
+			        <label for="img4" class="left nav1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg></label>
+			        <label for="img2" class="right nav1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
 			        
-			        <label for="img1" class="left nav2">&#8592;</label>
-			        <label for="img3" class="right nav2">&#8594;</label>
+			        <label for="img1" class="left nav2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg>
+					</label>
+			        <label for="img3" class="right nav2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
 			        
-			        <label for="img2" class="left nav3">&#8592;</label>
-			        <label for="img4" class="right nav3">&#8594;</label>
+			        <label for="img2" class="left nav3">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg>
+					</label>
+			        <label for="img4" class="right nav3">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
 			        
-			        <label for="img3" class="left nav4">&#8592;</label>
-			        <label for="img1" class="right nav4">&#8594;</label>
+			        <label for="img3" class="left nav4">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg>
+					</label>
+			        <label for="img1" class="right nav4">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
 
 <!--					<img class="card-img" id="image1" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
-<!--			        <img class="card-img" id="image2" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
-<!--					<img class="card-img" id="image3" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
-<!--					<img class="card-img" id="image4" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
+<!--			        <img class="card-img" id="image2" th:src="@{'/images/' + ${currentProduct.imgFilenames[1]}}" alt="Product Image">-->
+<!--					<img class="card-img" id="image3" th:src="@{'/images/' + ${currentProduct.imgFilenames[2]}}" alt="Product Image">-->
+<!--					<img class="card-img" id="image4" th:src="@{'/images/' + ${currentProduct.imgFilenames[3]}}" alt="Product Image">-->
 						<img class="card-img" id="image1" src="/images/blue-lime-01.png" alt="Product Image">
 				        <img class="card-img" id="image2" src="/images/blue-lime-02.png" alt="Product Image">
 						<img class="card-img" id="image3" src="/images/blue-lime-03.png" alt="Product Image">
@@ -63,12 +98,9 @@
 				        </div>
 						</tr>
 					</div>
+					<h2 th:text="RM + ' ' + ${currentProduct.price}"></h2>
 					<h2>
-						<span>Product price: </span>
-		                <span th:text="${currentProduct.price}"></span>
-					</h2>
-					<h2>
-					    <span th:text="${currentProduct.stock}"></span>
+					    <span th:text="Only + ' ' + ${currentProduct.stock}"></span>
 						<span>Left </span>
 					</h2>
 				    <a class="purchaseButton" th:href="@{/checkout/{id} (id=${currentProduct.id})}">Purchase Now</a>
@@ -146,7 +178,7 @@
 				</div>
 			</div>
 	   		<div class="product_more">
-          		<h2>You May Also Like</h2>
+          		<h1>You May Also Like</h1>
 					<tr th:each="product, productStat: ${products}" th:if="${product.id!=currentProduct.id}" th:unless="${productStat.count>4}">
 						<div class="card" >
 							<img th:src="@{'/images/' + ${product.imgFilenames[0]}}"  alt="Product Image">
@@ -155,7 +187,7 @@
 								<h3 class="card-text" th:text="${product.colour}"></h3>
 			                </div>
 							<div class="card-body">
-			                    <h2 "${product.price}"></h2>
+			                    <h2 th:text="RM + ${product.price}"></h2>
 								<a class="purchaseButton" th:href="@{/checkout}">Purchase Now</a>
 			                </div>
 						</div>
@@ -185,5 +217,12 @@
 				</div>
 			</div>
 		</div>
+		
+<!--		<ul>-->
+<!--	        <li th:each="imge : ${currentProduct.imgFilenames}" th:text="${im}"></li>-->
+			
+<!--	    </ul>-->
+		
+		<div th:replace="footer"></div>
 	</body>
 </html>
