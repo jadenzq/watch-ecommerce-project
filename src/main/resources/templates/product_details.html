@@ -75,14 +75,10 @@
 						</svg>
 					</label>
 
-<!--					<img class="card-img" id="image1" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
-<!--			        <img class="card-img" id="image2" th:src="@{'/images/' + ${currentProduct.imgFilenames[1]}}" alt="Product Image">-->
-<!--					<img class="card-img" id="image3" th:src="@{'/images/' + ${currentProduct.imgFilenames[2]}}" alt="Product Image">-->
-<!--					<img class="card-img" id="image4" th:src="@{'/images/' + ${currentProduct.imgFilenames[3]}}" alt="Product Image">-->
-						<img class="card-img" id="image1" src="/images/blue-lime-01.png" alt="Product Image">
-				        <img class="card-img" id="image2" src="/images/blue-lime-02.png" alt="Product Image">
-						<img class="card-img" id="image3" src="/images/blue-lime-03.png" alt="Product Image">
-						<img class="card-img" id="image4" src="/images/blue-lime-04.png" alt="Product Image">
+					<img class="card-img" id="image1" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">
+			        <img class="card-img" id="image2" th:src="@{'/images/' + ${currentProduct.imgFilenames[1]}}" alt="Product Image">
+					<img class="card-img" id="image3" th:src="@{'/images/' + ${currentProduct.imgFilenames[2]}}" alt="Product Image">
+					<img class="card-img" id="image4" th:src="@{'/images/' + ${currentProduct.imgFilenames[3]}}" alt="Product Image">
 			    </div>
 	   		</div>
 	   		<div class="other-product">
@@ -179,7 +175,7 @@
 			</div>
 	   		<div class="product_more">
           		<h1 class="recommendTitle">You May Also Like</h1>
-					<tr th:each="product, productStat: ${products}" th:if="${product.id!=currentProduct.id}" th:unless="${productStat.count>4}">
+					<tr th:each="product, productStat: ${products}" th:if="${product.id!=currentProduct.id}" th:unless="${productStat.count>3}">
 						<div class="card" >
 							<img th:src="@{'/images/' + ${product.imgFilenames[0]}}"  alt="Product Image">
 			                <div class="card-body">
@@ -218,7 +214,6 @@
 				</div>
 			</div>
 		</div>
-	
 		
 		<div th:replace="footer"></div>
 	</body>
