@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
+  font-weight: 700 !important;
 }
 
 .Headcontainer {
@@ -17,6 +18,10 @@ body {
     color: #fff;
     font-size: 24px;
     text-decoration: none; 
+}
+
+.name a:hover {
+	text-decoration: none;
 }
 
 .Headcontainer ul {
@@ -48,6 +53,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
+    text-decoration: none;
     background-color: #7AB2B2;
     color: white;
 }
@@ -96,7 +102,7 @@ footer {
     align-items: center;
 }
 
-.btn {
+.icon-btn {
     display: inline-block;
     width: 40px; 
     height: 40px;
@@ -109,38 +115,38 @@ footer {
     transition: 0.3s linear;
 }
 
-.btn i {
+.icon-btn i {
     line-height: 40px; 
     font-size: 20px; 
     transition: 0.3s linear;
 }
 
-.btn:nth-child(1) i {
+.icon-btn:nth-child(1) i {
     color: #3b5998;
 }
 
-.btn:nth-child(2) i {
+.icon-btn:nth-child(2) i {
     color: #1da1f2;
 }
 
-.btn:nth-child(3) i {
+.icon-btn:nth-child(3) i {
     color: #c32aa3;
 }
 
-.btn:nth-child(4) i {
+.icon-btn:nth-child(4) i {
     color: #db4437;
 }
 
-.btn:hover {
+.icon-btn:hover {
     transform: scale(1.1);
 }
 
-.btn:hover i {
+.icon-btn:hover i {
     transform: scale(1.2);
     color: #fff;
 }
 
-.btn:before {
+.icon-btn:before {
     content: "";
     position: absolute;
     width: 120%;
@@ -150,23 +156,23 @@ footer {
     top: 90%;
 }
 
-.btn:nth-child(1)::before {
+.icon-btn:nth-child(1)::before {
     background: #3b5998;
 }
 
-.btn:nth-child(2)::before {
+.icon-btn:nth-child(2)::before {
     background: #1da1f2;
 }
 
-.btn:nth-child(3)::before {
+.icon-btn:nth-child(3)::before {
     background: #c32aa3;
 }
 
-.btn:nth-child(4)::before {
+.icon-btn:nth-child(4)::before {
     background: #db4437;
 }
 
-.btn:hover::before {
+.icon-btn:hover::before {
     animation: aaa 0.7s 1;
     top: -10%;
     left: -10%;
