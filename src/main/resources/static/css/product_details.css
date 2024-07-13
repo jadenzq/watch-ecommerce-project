@@ -194,7 +194,8 @@ p {
 .product_content li span {
     line-height: 20px;
     text-align: right;
-    text-transform: none
+    text-transform: none;
+    margin-right: 20px;
 }
 
 .product_content li {
