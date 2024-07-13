@@ -8,14 +8,15 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-image: url(https://img.freepik.com/free-vector/platform-mockup-product-display-background_1017-14073.jpg?t=st=1717570271~exp=1717573871~hmac=a76de784f05a5199244421b6f31d5c75725c52fbd258065468359e101b294a4f&w=740);
+			background-color: rgb(0, 0, 0);
+		
         }
 
         .container {
             max-width: 900px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #222;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -41,10 +42,11 @@
         label {
             display: block;
             margin-bottom: 8px;
+			color: aquamarine;
         }
 		.form-header {
-		    background-color:rgb(255, 255, 128); 
-		    color: rgb(0, 128, 255);
+		    background-color:rgb(128, 128, 255); 
+		    color: rgb(255, 255, 255);
 		    padding: 10px; 
 		    border-radius: 8px 8px 0 0; 
 		    text-align: center; 
@@ -56,7 +58,21 @@
 			color: red;
 		}
 		
-
+	.discription{
+		color: rgb(255, 255, 255);
+	}
+	
+	.form-control{
+		background-color: #333;
+		border-color: #333;
+		color: white;
+	}
+	
+	.form-select {
+		background-color: #333;
+		border-color: #333;
+		color: white
+	}
 		
     </style>
 	
@@ -79,14 +95,14 @@
 	
     <div class="container">
         <div class="left-column">
-            <img src="https://www.signpost.com/wp-content/uploads/2021/11/call-center-customer-service-tips-scaled.jpeg" alt="Customer Service">
+            <img src="https://www.advantedge-training.com/wp-content/uploads/2024/01/feedback-4746811_1920.png" alt="Customer Service">
         </div>
         <div class="right-column">
 			<div class="form-header">
 				<h1 class="mt-5 mb-4">Feedback Form</h1>
 			</div>
             
-            <p>Leave your feedback here, our staff will reply within 3 working days</p>
+            <p class="discription">Leave your feedback here, our staff will reply within 3 working days</p>
 			<div class="required">
 				<p>Fields with * are required</p>
 			</div>
