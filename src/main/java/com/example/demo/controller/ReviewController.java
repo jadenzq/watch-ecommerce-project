@@ -24,7 +24,7 @@ public class ReviewController {
 			this.productService = productService;
 		}
 		
-		@GetMapping("/product/{productId}")
+		@GetMapping("/admin/product/{productId}")
 		public String listReview(@PathVariable Long productId, Model model) {
 			Product product = productService.getProductById(productId);
 			model.addAttribute("reviews", reviewService.findByProduct(product));
@@ -34,12 +34,12 @@ public class ReviewController {
 			return "product";
 		}
 		
-		@PostMapping("/product/{productId}")
+		@PostMapping("/admin/product/{productId}")
 		public String saveReview(@PathVariable Long productId, @ModelAttribute("review") Review review) {
 			Product product = productService.getProductById(productId);
 	        review.setProduct(product);
 	        reviewService.saveReview(review);
-	        return "redirect:/product/{productId}";
+	        return "redirect:/admin/product/{productId}";
 		}
 		
 }
