@@ -1,4 +1,5 @@
 @charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 body {
   font-family: 'Quicksand', sans-serif;
@@ -10,6 +11,7 @@ body {
     align-items: center;
     padding: 20px;
     background-color: #b6eada;
+    font-weight: 700;
 }
 
 .Headcontainer .name ul li a{
