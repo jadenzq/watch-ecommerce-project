@@ -22,7 +22,20 @@
                 <h2>Register</h2>
                 <form th:action="@{/register}" th:object="${user}" method="post">
                     <div class="form">
-                        <div class="row">
+						
+						<div class="row">
+						    <div class="column">
+						        <div class="inputBox">
+									<select th:field="*{role}" required>
+										<option value="Buyer" selected>Buyer</option>
+										<option value="Admin">Admin</option>
+									</select>
+									
+						        </div>
+						    </div>
+						</div>
+						
+						<div class="row">
                             <div class="column">
                                 <div class="inputBox">
                                     <input type="text" id="firstName" th:field="*{firstName}" placeholder="First Name" required>
