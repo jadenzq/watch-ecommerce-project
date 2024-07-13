@@ -55,13 +55,12 @@ public class OrderController {
 	    if (product.getStock() > 0) {
 	        product.setStock(product.getStock() - 1); // Decrease the stock by 1
 	        productService.updateProduct(product); // Save the updated product
-
 	        order.setProduct(product);
 	        orderService.saveOrder(order);
 	        return "redirect:/receipt";
 	    } else {
 	        // Handle the case where the product is out of stock
-	        return "redirect:/product/detail/" + productId;
+	        return "product/detail/" + productId;
 	    }
 	}
 

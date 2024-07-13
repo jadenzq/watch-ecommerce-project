@@ -29,7 +29,8 @@
 		  						    <th>Name</th>
 									<th>Phone No.</th>
 		  						    <th>Shipping Address</th>
-		  						    <th>Order item</th>
+		  						    <th>Order Item</th>
+									<th>Order Colour</th>
   					    		</tr>
 				      		</thead>
 				
@@ -48,6 +49,12 @@
 	    							<td>
     									<p th:text="${order.product?.collection}"></p>
 	    							</td>
+									<td>
+    									<p th:text="${order.product?.colour}"></p>
+	    							</td>
+									<td>
+										<a class="btn btn-primary" th:href="@{/product/{productId} (productId=${order.product.id})}">Review</a>
+									</td>
 		      					</tr>
 		      				</tbody>
       					</table>
