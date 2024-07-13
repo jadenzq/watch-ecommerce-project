@@ -5,6 +5,7 @@ body{
 
 .container{
   margin: auto;
+  min-height: 75vh;
 }
 
 .table td{

@@ -6,6 +6,18 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <!--		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+		<script>
+		    document.addEventListener("DOMContentLoaded", function() {
+		        console.log("DOM content loaded");
+		        /*<![CDATA[*/
+		        var nostock = /*[[${nostock}]]*/ null;
+		        console.log("nostock:", nostock);
+		        if (nostock !== null && nostock !== '') {
+		            alert(nostock);
+		        }
+		        /*]]>*/
+		    });
+		</script>
 	  <title>Product Page</title>
 	  <link th:href="@{/css/product_details.css}" rel="stylesheet" /> 
 	</head>
@@ -218,7 +230,6 @@
 				</div>
 			</div>
 		</div>
-		
 		<div th:replace="footer"></div>
 	</body>
 </html>
