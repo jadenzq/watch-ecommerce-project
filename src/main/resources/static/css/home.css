@@ -17,14 +17,6 @@ h2 {
     color: #486684;
 }
 
-p {
-    font-size: 16px;
-    font-weight: 400;
-    margin: 16px 0;
-    color: #495057;
-    line-height: 28px;
-}
-
 .product-container {
   background-color: #5B8FB9;
   width: 100%;
@@ -34,8 +26,6 @@ p {
 .product_recommend {
 	width:45%;
 	text-align: center;
-	margin-left: 5%;
-	
 }
 
 .product_recommend .card {
@@ -87,4 +77,12 @@ p {
 .home_description img {
 	width: 125%;
 	height: auto;
+}
+
+.ViewButton {
+	background-color:#007bff;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
 }

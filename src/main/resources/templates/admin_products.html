@@ -47,6 +47,7 @@
 							<td th:text="${#numbers.formatDecimal(product.price, 1,'COMMA',2,'POINT')}"></td>
 							<td th:text="${product.stock}"></td>
 							<td>
+								<a class="btn btn-secondary" th:href="@{product/{id} (id=${product.id})}" target="_blank">Product Review</a>
 								<a class="btn btn-primary" th:href="@{edit/product/{id} (id=${product.id})}">Edit</a>
 								<a class="btn btn-danger" th:href="@{delete/product/{id} (id=${product.id})}">Delete</a>
 							</td>
