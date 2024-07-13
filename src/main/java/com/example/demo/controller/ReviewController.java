@@ -42,9 +42,4 @@ public class ReviewController {
 	        return "redirect:/product/{productId}";
 		}
 		
-		@GetMapping("/userReview")
-		public String listUserReview(Model model) {
-			model.addAttribute("reviews", reviewService.getAllReviews());
-			return "user_review";
-		}
 }
