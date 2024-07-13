@@ -76,6 +76,12 @@ p {
 	padding-left: 50px;
 }
 
+.product-container .other-product p{
+	font-size: 30px;
+	font-weight: bold;
+	color:#301E67;
+}
+
 .gallery {
     position: relative;
     margin:auto;
