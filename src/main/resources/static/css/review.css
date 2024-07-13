@@ -3,7 +3,7 @@
 }
 
 #review-container{
-	background-color: #301e67;
+	background-color: #222;
 	color: white;
 	width: 50%;
 	border-radius: 3px;
@@ -27,14 +27,7 @@
 }
 
 #review-section{
-	background-color: #5B8FB9;
-	border-radius: 5px;
-	margin: auto;
-	 font-size: 20px;
-}
-
-#review-section{
-	background-color: black;
+	background-color: #333;
 	border-radius: 5px;
 	margin: auto;
 	width: 96%;
@@ -45,6 +38,7 @@
 	font-size: 15px;
 	margin: auto;
 	background-color:#B6eada;
+	color: white;
 }
 
 #user-review{
@@ -57,7 +51,7 @@
 
 body{
 	font-family: 'Quicksand', sans-serif;
-	background-color: #03001C;
+	background-color: #000;
 }
 
 p{
