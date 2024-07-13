@@ -39,10 +39,10 @@ input::placeholder{
 }
 
 .form-container{
-	width: auto;
+	width: 700px;
 	align-items: center;
 	justify-content: center;
-	background: #03001C;
+	background: #222;
 	height: 500px;
 	border-radius: 10px;
 }
@@ -75,12 +75,6 @@ input::placeholder{
 	font-weight: 500;
 	margin-top: 15px;
 	color: white;
-}
-
-.form-outer form .page .form-group{
-	height: 45px;
-	width: 100%;
-	margin: 45px 20px 0 20px;
 }
 
 .container .progress-bar{
@@ -187,9 +181,10 @@ input::placeholder{
 }
 
 .form-outer form .page .form-group{
-	margin: 45px 0;
 	display: flex;
 	position: relative;
+	width: 100%;
+	margin: 45px 0;
 }
 
 .form-outer form .page .form-group label{
@@ -202,9 +197,9 @@ input::placeholder{
 .form-outer form .page .form-group button{
 	width: 40%;
 	border: none;
-	background: #5B8FB9;
+	background: #b6eada;
 	border-radius: 5px;
-	color: white;
+	color: black;
 	font-size: 18px;
 	font-weight: 500px;
 	text-transform: uppercase;
@@ -213,11 +208,11 @@ input::placeholder{
 }
 
 .form-outer form .page .form-group button:hover{
-	background: #301E67; 
+	background: #301E67;
+	color: white; 
 }
 
 form .page .btns{
-	display: flex;
 	justify-content: flex-end;
 }
 
@@ -246,4 +241,13 @@ form .page .btns button.next{
 .form-outer form .page .form-payment img{
 	width: 50px;
 	height: 30px;
+}
+
+.table-dark {
+    color: #fff;
+}
+
+.form-group .table,
+.form-group .table td{
+	text-align : left;
 }

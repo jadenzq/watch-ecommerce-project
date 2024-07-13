@@ -1,4 +1,5 @@
 const slidePage = document.querySelector(".slidepage");
+const pages = document.querySelectorAll(".page"); // Changed to select all pages
 const firtNextBtn = document.querySelector(".nextBtn");
 const prevBtnSec = document.querySelector(".prev-1");
 const nextBtnSec = document.querySelector(".next-1");
@@ -73,6 +74,7 @@ function validatePayment() {
 firtNextBtn.addEventListener("click", function(event) {
     event.preventDefault();
     slidePage.style.marginLeft = "-25%";
+    pages.scrollTo = (0,0);
     bullet[current - 1].classList.add("active");
     progressCheck[current - 1].classList.add("active");
     progressText[current - 1].classList.add("active");
@@ -88,9 +90,6 @@ nextBtnSec.addEventListener("click", function(event) {
         progressText[current - 1].classList.add("active");
         current += 1;
     }
-    else{
-		 slidePage.style.marginLeft = "-25%";
-	}
 });
 
 submitBtn.addEventListener("click", function() {
@@ -119,42 +118,3 @@ prevBtnThird.addEventListener("click", function(event) {
     progressText[current - 2].classList.remove("active");
     current -= 1;
 });
-
-
-//const phoneNumInput = document.getElementById("phomeNum");
-//const phoneNumHelpBlock = document.getElementById("phoneNumHelpBlock");
-//const postcodeInput = document.getElementById("postcode");
-//const postcodeHelpBlock = document.getElementById("postcodeHelpBlock");
-//const cardnumInput = document.getElementById("cardnum");
-//const cardnumHelpBlock = document.getElementById("cardnumHelpBlock");
-//const cvvInput = document.getElementById("cvv");
-//const cvvHelpBlock = document.getElementById("cvvHelpBlock");
-//
-//const checkPostcode = (str) => {
-//
-//	const pattern = /^[0][]{10,15}*$/;
-//    
-//    return str.match(pattern);
-//
-//};
-//
-//const checkTwoDecimalPlaces = (str) => {
-//
-//	const pattern = /^[1-9][0-9]*([\.][0-9]{2})*$/;
-//    
-//    return str.match(pattern);
-//
-//};
-//
-//const checkDescription = (str) => {
-//	
-//	const min = 10;
-//	const max = 200;
-//	const len = str.split(" ").length;
-//	
-//	if (len < min || len > max){
-//		return null;
-//	} else {
-//		return true;
-//	}
-//};

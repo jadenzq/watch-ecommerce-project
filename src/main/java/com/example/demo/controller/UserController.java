@@ -18,7 +18,7 @@ public class UserController {
 		super();
 		this.userService = userService;
 	}
-
+    
 	@GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
@@ -45,13 +45,11 @@ public class UserController {
     public String loginUser(@ModelAttribute("user") User user, Model model) {
         User existingUser = userService.findByUsername(user.getUsername());
         if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
-        	System.out.println(existingUser.getRole());
         	if(existingUser.getRole().equals("Admin")) {
         		return "redirect:/admin/products"; // Redirect to admin page
         	} else {
         		return "redirect:/home"; // Redirect to buyer home page
         	}
-        	
         } else {
             model.addAttribute("error", "Invalid username or password");
             return "login";

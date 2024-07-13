@@ -1,13 +1,9 @@
 #review-star{
-<<<<<<< HEAD
 	margin-top: 2px;
-=======
-	margin-top: 6px;
->>>>>>> remotes/origin/add-rating-function/user-review-page
 }
 
 #review-container{
-	background-color: #301e67;
+	background-color: #222;
 	color: white;
 	width: 50%;
 	border-radius: 3px;
@@ -27,20 +23,12 @@
 	 border-top: none;
 	 border-bottom: 1px solid #ddd;
 	 color: white;
-<<<<<<< HEAD
 	 font-size: 15px;
+	 text-align: left;
 }
 
 #review-section{
-	background-color: #5B8FB9;
-	border-radius: 5px;
-	margin: auto;
-=======
-	 font-size: 20px;
-}
-
-#review-section{
-	background-color: black;
+	background-color: #333;
 	border-radius: 5px;
 	margin: auto;
 	width: 96%;
@@ -51,6 +39,7 @@
 	font-size: 15px;
 	margin: auto;
 	background-color:#B6eada;
+	color: white;
 }
 
 #user-review{
@@ -59,34 +48,35 @@
 	width: 97%;
 	margin: auto;
 	border-radius: 5px;
->>>>>>> remotes/origin/add-rating-function/user-review-page
 }
 
 body{
 	font-family: 'Quicksand', sans-serif;
-	background-color: #03001C;
+	background-color: #000;
 }
 
-<<<<<<< HEAD
-=======
 p{
 	height:20px;
 	
 }
 
->>>>>>> remotes/origin/add-rating-function/user-review-page
 textarea{
 	resize: none;
 }
 
-<<<<<<< HEAD
+.text-align{
+	margin: auto;
+	text-align: center;
+}
+
 .review-number{
 	font-size: 10px;
 }
 
 .review-date{
 	font-size: 7px;
-=======
+}
+
 .material-icons{
 	padding-right: 2px;
 }
@@ -97,7 +87,6 @@ textarea{
 
 .review-date{
 	font-size: 10px;
->>>>>>> remotes/origin/add-rating-function/user-review-page
 }
 
 .bold-text{
@@ -105,8 +94,6 @@ textarea{
 	font-family: "Baskervville SC", serif;
     font-weight: 400;
     font-style: normal;
-<<<<<<< HEAD
-=======
     font-size: 50px;
 }
 
@@ -115,7 +102,10 @@ textarea{
 }
 
 .mid-font{
-	font-size: 25px;
+	font-size: 40px;
+	font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .large-font{
@@ -127,7 +117,6 @@ textarea{
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
->>>>>>> remotes/origin/add-rating-function/user-review-page
 }
 
 .zcool-xiaowei-regular {
@@ -141,10 +130,16 @@ textarea{
 }
 
 .blue{
-	background-color: #301e67;
+	background-color: #222;
 	width: 95%;
 	margin: auto;
 	margin-bottom: 20px;
+}
+
+.star-rating-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .star-rating{
@@ -174,8 +169,4 @@ textarea{
 .star-rating > label:hover ~ input[type="radio"]:checked ~ label,
 .star-rating > input[type="radio"]:checked ~ label:hover ~ label{
     color: #ffc107;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> remotes/origin/add-rating-function/user-review-page

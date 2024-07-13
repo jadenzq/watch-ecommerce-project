@@ -10,6 +10,7 @@ h1 {
     font-weight: 700;
     margin: 30px 0;
     color: #1a252f;
+    text-transform: uppercase
 }
 
 h2 {
@@ -30,20 +31,21 @@ p {
     font-size: 16px;
     font-weight: 400;
     margin: 16px 0;
-    color: #495057;
+    color: #000000;
     line-height: 28px;
 }
 
 .product-container {
   background-color: #5B8FB9;
   width: 100%;
-  height: 500px;	
+  height: 500px;
 }
 
 .row {
 	height: 100%;
 	display: flex;
 	width: 100%;
+	margin:auto;
 }
 
 .product-container .card {
@@ -56,6 +58,7 @@ p {
   height: auto;
 }
 
+
 .product-container .product-description, .product-image, .other-product {
   width: 33%;
   margin:auto;
@@ -64,8 +67,7 @@ p {
 }
 
 .product-container .product-description {
-	width: 28%;
-	margin-left: 5%;
+	width: 40%;
 }
 
 .product-container .other-product {
@@ -104,7 +106,7 @@ p {
     left: 10px;
 }
 .gallery label.right {
-    right: 110px;
+    right: 80px;
 }
 #img1:checked ~ #image1,
 #img2:checked ~ #image2,
@@ -174,7 +176,6 @@ p {
   color:white;
   padding: 10px 20px;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .product_content {

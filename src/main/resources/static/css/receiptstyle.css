@@ -1,0 +1,19 @@
+body{
+  background-color: black;
+  color: white;
+}
+
+.container{
+  margin: auto;
+  min-height: 75vh;
+}
+
+.table td{
+	background-color: black;
+	color: white;
+}
+
+.table th,
+.table td{
+	text-align: left;
+}
