@@ -9,4 +9,10 @@ body{
 
 .table td{
 	background-color: black;
+	color: white;
+}
+
+.table th,
+.table td{
+	text-align: left;
 }
