@@ -36,18 +36,19 @@ public class OrderController {
 		Product product = productService.getProductById(id);
 		order.setProduct(product);
 		model.addAttribute("order", order);
+		System.out.println(order.getProduct().getId());
 		return "checkout";
 	}
 	
 	@PostMapping("/after_checkout/{productId}")
 	public String saveOrder(@ModelAttribute("order") Order order,
 			@PathVariable("productId") Long productId) {
-		
 		Product product = productService.getProductById(productId);
 		order.setProduct(product);
 		orderService.saveOrder(order);
 		return "redirect:/receipt";
 	}
+
 	
 	@GetMapping("/receipt/edit/{id}")
 	public String editOrderForm(@PathVariable Long id, Model model) {

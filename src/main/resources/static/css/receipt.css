@@ -1,0 +1,12 @@
+body{
+  background-color: black;
+  color: white;
+}
+
+.container{
+  margin: auto;
+}
+
+.table td{
+	background-color: black;
+}
