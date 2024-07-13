@@ -6,39 +6,49 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Order;
+import com.example.demo.entity.Product;
 import com.example.demo.service.OrderService;
+import com.example.demo.service.ProductService;
 
 @Controller
 public class OrderController {
 	private OrderService orderService;
+	private ProductService productService;
     
-	public OrderController(OrderService orderService) {
+	
+	public OrderController(OrderService orderService, ProductService productService) {
 		super();
 		this.orderService = orderService;
+		this.productService = productService;
 	}
-	
+
 	@GetMapping("/receipt")
 	public String listOrders(Model model) {
 		model.addAttribute("orders", orderService.getAllOrders());
 		return "receipt";
 	}
 	
-	@GetMapping("/checkout")
-	public String createOrderForm(Model model) {
+	@GetMapping("/checkout/{id}")
+	public String createOrderForm(@PathVariable("id") Long id, Model model) {
 		Order order = new Order();
+		Product product = productService.getProductById(id);
+		order.setProduct(product);
 		model.addAttribute("order", order);
+		System.out.println(order.getProduct().getId());
 		return "checkout";
 	}
 	
-	@PostMapping("/receipt")
-	public String saveOrder(@ModelAttribute("order") Order order) {
+	@PostMapping("/after_checkout/{productId}")
+	public String saveOrder(@ModelAttribute("order") Order order,
+			@PathVariable("productId") Long productId) {
+		Product product = productService.getProductById(productId);
+		order.setProduct(product);
 		orderService.saveOrder(order);
 		return "redirect:/receipt";
 	}
+
 	
 	@GetMapping("/receipt/edit/{id}")
 	public String editOrderForm(@PathVariable Long id, Model model) {

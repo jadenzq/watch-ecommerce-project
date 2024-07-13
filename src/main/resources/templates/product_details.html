@@ -21,7 +21,7 @@
 				  <h2 th:text="${currentProduct.colour}"></h2>
 				  <p th:text="${currentProduct.description}"></p>
 				  <br>
-				  <a class="rateButton" th:href="@{/product}">Rate it</a>
+				  <a class="rateButton" th:href="@{'/product/' + ${currentProduct.id}}">Rate Out Product</a>
 	   			</div>
 	   		</div>
 	   		<div class="product-image">
@@ -103,12 +103,12 @@
 					    <span th:text="Only + ' ' + ${currentProduct.stock}"></span>
 						<span>Left </span>
 					</h2>
-				    <a class="purchaseButton" th:href="@{/checkout}">Purchase Now</a>
+				    <a class="purchaseButton" th:href="@{'/checkout/' + ${currentProduct.id}}">Purchase Now</a>
 	   			</div>
 	   		</div>
 	   	</div>
 	  </div>
-	  <br>
+
 	  
 	  	<div class="productDetails-container">
 			<div class="product_details">
@@ -178,26 +178,27 @@
 				</div>
 			</div>
 	   		<div class="product_more">
-          		<h1>You May Also Like</h1>
+          		<h1 class="recommendTitle">You May Also Like</h1>
 					<tr th:each="product, productStat: ${products}" th:if="${product.id!=currentProduct.id}" th:unless="${productStat.count>4}">
 						<div class="card" >
 							<img th:src="@{'/images/' + ${product.imgFilenames[0]}}"  alt="Product Image">
 			                <div class="card-body">
-								<h2 class="card-title" th:text="${product.collection}"></h2>
+								<a th:href="@{'/product/detail/' + ${product.id}}">
+									<h2 class="card-title" th:text="${product.collection}"></h2>
+								</a>
 								<h3 class="card-text" th:text="${product.colour}"></h3>
 			                </div>
 							<div class="card-body">
 			                    <h2 th:text="RM + ${product.price}"></h2>
-								<a class="purchaseButton" th:href="@{/checkout}">Purchase Now</a>
+								<a class="purchaseButton" th:href="@{'/checkout/' + ${product.id}}">Purchase Now</a>
 			                </div>
 						</div>
 					</tr>
 	   		</div>
 		</div>
 		
-		<br>
-		
 		<div class="others-container">
+			<br>
 		  	<div class"row">
 				<div classs="column">
 					<div class="others-card">
@@ -218,11 +219,6 @@
 			</div>
 		</div>
 	
-		
-<!--		<ul>-->
-<!--	        <li th:each="imge : ${currentProduct.imgFilenames}" th:text="${im}"></li>-->
-			
-<!--	    </ul>-->
 		
 		<div th:replace="footer"></div>
 	</body>

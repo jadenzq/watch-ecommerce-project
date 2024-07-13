@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,11 +35,17 @@ public class Order {
 	
 	@Column(name = "state", nullable=false)
 	private String state;
+	
+	@ManyToOne
+	@JoinColumn(name = "product_id", nullable=false)
+	private Product product;
 
+	
 	public Order() {}
 	
+	
 	public Order(Long id, String firstName, String lastName, String phoneNumber, String deliveryAddress,
-			String postcode, String state) {
+			String postcode, String state, Product product) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -45,8 +54,11 @@ public class Order {
 		this.deliveryAddress = deliveryAddress;
 		this.postcode = postcode;
 		this.state = state;
+		this.product = product;
 	}
-	
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -102,5 +114,15 @@ public class Order {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
+	
 }
 
