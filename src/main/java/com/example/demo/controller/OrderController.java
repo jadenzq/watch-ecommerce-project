@@ -59,7 +59,6 @@ public class OrderController {
 	        orderService.saveOrder(order);
 	        return "redirect:/receipt";
 	    } else {
-	        // Handle the case where the product is out of stock
 	        return "product/detail/" + productId;
 	    }
 	}
