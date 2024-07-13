@@ -9,11 +9,12 @@ public class ProductDto {
 	private String colour;
 	private String plating;
 	private Double weight;
+	private Product product;
 	
 	public ProductDto() {}
 
-	public ProductDto(String description, Double price, Integer stock,
-			String collection, String colour, String plating, Double weight) {
+	public ProductDto(String description, Double price, Integer stock, String collection, String colour, String plating,
+			Double weight, Product product) {
 		super();
 		this.description = description;
 		this.price = price;
@@ -22,7 +23,10 @@ public class ProductDto {
 		this.colour = colour;
 		this.plating = plating;
 		this.weight = weight;
+		this.product = product;
 	}
+
+
 
 	public String getDescription() {
 		return description;
@@ -80,10 +84,13 @@ public class ProductDto {
 		this.weight = weight;
 	}
 
-	
+	public Product getProduct() {
+		return product;
+	}
 
-	
-	
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 	
 	
 }

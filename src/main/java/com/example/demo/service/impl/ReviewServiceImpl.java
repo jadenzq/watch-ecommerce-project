@@ -1,3 +1,4 @@
+
 package com.example.demo.service.impl;
 
 import java.math.BigDecimal;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entity.Product;
 import com.example.demo.entity.Review;
 import com.example.demo.service.ReviewService;
 import com.example.demo.repository.ReviewRepository;
@@ -50,6 +52,9 @@ public class ReviewServiceImpl implements ReviewService{
 	        }
 		return reviewRepo.save(review);
 	}
-
 	
+	@Override
+	public List<Review> findByProduct(Product product){
+		return reviewRepo.findByProduct(product);
+	}
 }

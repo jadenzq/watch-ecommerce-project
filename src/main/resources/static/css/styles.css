@@ -6,14 +6,12 @@
 	--blue: #5B8FB9;
 	--input-bg: rgb(235, 237, 237);
 	--dark-gray: rgb(45, 45, 45);
-}
-
-* {
-	font-family: "Quicksand", sans-serif !important;
-	font-weight: 700 !important;
+	--green: #00C000;
 }
 
 body {
+	font-family: "Quicksand", sans-serif !important;
+	font-weight: 700 !important;
 	background-color: black;
 	color: white;
 }
@@ -99,4 +97,9 @@ textarea {
 
 .btn-mint{
 	background-color: var(--mint);
+}
+
+.valid-img {
+	border-color: var(--green);
+	border-style: solid;
 }

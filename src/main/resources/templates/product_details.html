@@ -5,48 +5,110 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
 	  <title>Product Page</title>
 	  <link th:href="@{/css/product_details.css}" rel="stylesheet" /> 
 	</head>
 	
 	<body>
+		<div th:replace="header"></div>
+		
 	  <div class="product-container">
 	  	<div class="row">
             <div class="product-description">
             	<div class="card">
-			      <h2 th:text="${product.collection}"></h2>
-				  <h3 th:text="${product.colour}"></h3>
-				  <p th:text="${product.description}"></p>
+			      <h1 th:text="${currentProduct.collection}"></h1>
+				  <h2 th:text="${currentProduct.colour}"></h2>
+				  <p th:text="${currentProduct.description}"></p>
+				  <br>
+				  <a class="rateButton" th:href="@{'/product/' + ${currentProduct.id}}">Rate Out Product</a>
 	   			</div>
 	   		</div>
 	   		<div class="product-image">
-            	<div class="card">
-            		<img class="card-img" th:src="@{'/images/' + ${product.imgFilenames[0]}}" alt="Product Image">
-	   			</div>
+				<div class="gallery">
+			        <input type="radio" name="gallery" id="img1" checked>
+			        <input type="radio" name="gallery" id="img2">
+			        <input type="radio" name="gallery" id="img3">
+			        <input type="radio" name="gallery" id="img4">
+
+			        <!-- Navigation buttons for each image -->
+			        <label for="img4" class="left nav1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg></label>
+			        <label for="img2" class="right nav1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
+			        
+			        <label for="img1" class="left nav2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg>
+					</label>
+			        <label for="img3" class="right nav2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
+			        
+			        <label for="img2" class="left nav3">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg>
+					</label>
+			        <label for="img4" class="right nav3">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
+			        
+			        <label for="img3" class="left nav4">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+						</svg>
+					</label>
+			        <label for="img1" class="right nav4">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#FFFFFF" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+						  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+						</svg>
+					</label>
+
+<!--					<img class="card-img" id="image1" th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}" alt="Product Image">-->
+<!--			        <img class="card-img" id="image2" th:src="@{'/images/' + ${currentProduct.imgFilenames[1]}}" alt="Product Image">-->
+<!--					<img class="card-img" id="image3" th:src="@{'/images/' + ${currentProduct.imgFilenames[2]}}" alt="Product Image">-->
+<!--					<img class="card-img" id="image4" th:src="@{'/images/' + ${currentProduct.imgFilenames[3]}}" alt="Product Image">-->
+						<img class="card-img" id="image1" src="/images/blue-lime-01.png" alt="Product Image">
+				        <img class="card-img" id="image2" src="/images/blue-lime-02.png" alt="Product Image">
+						<img class="card-img" id="image3" src="/images/blue-lime-03.png" alt="Product Image">
+						<img class="card-img" id="image4" src="/images/blue-lime-04.png" alt="Product Image">
+			    </div>
 	   		</div>
 	   		<div class="other-product">
             	<div class="card">
 					<div class="product-list">
-						<ul th:each="product: ${products}">
-							<li><img th:src="@{'/images/' + ${product.imgFilenames[0]}}"></li>
-						</ul>
+						<div class="current-product-item">
+							<img th:src="@{'/images/' + ${currentProduct.imgFilenames[0]}}"  alt="Product Image">
+				        </div>
+						<tr th:each="product: ${products}" th:if="${product.id!=currentProduct.id}">
+						<div class="other-product-item">
+							<a th:href="@{'/product/detail/' + ${product.id}}">
+								<img th:src="@{'/images/' + ${product.imgFilenames[0]}}"  alt="Product Image"></a>
+				        </div>
+						</tr>
 					</div>
+					<h2 th:text="RM + ' ' + ${currentProduct.price}"></h2>
 					<h2>
-						<span>Product price: </span>
-		                <span th:text="${product.price}"></span>
-					</h2>
-					<h2>
-					    <span th:text="${product.stock}"></span>
+					    <span th:text="Only + ' ' + ${currentProduct.stock}"></span>
 						<span>Left </span>
 					</h2>
-				    <addButton>Add to Cart</addButton>
-				    <purchaseButton>Purchase Now</purchaseButton>
+				    <a class="purchaseButton" th:href="@{'/checkout/' + ${currentProduct.id}}">Purchase Now</a>
 	   			</div>
 	   		</div>
 	   	</div>
 	  </div>
-	  <br>
+
 	  
 	  	<div class="productDetails-container">
 			<div class="product_details">
@@ -55,19 +117,19 @@
 			    	<ul class="product_content">
 						<li>
 							Collection
-							<span th:text="${product.collection}"></span>
+							<span th:text="${currentProduct.collection}"></span>
 						</li>
 						<li>
 							Colour
-							<span th:text="${product.colour}"></span>
+							<span th:text="${currentProduct.colour}"></span>
 						</li>
 						<li>
 							Plating
-							<span th:text="${product.plating}"></span>
+							<span th:text="${currentProduct.plating}"></span>
 						</li>
 						<li>
 							Weight
-							<span th:text="${product.weight}"></span>
+							<span th:text="${currentProduct.weight}"></span>
 						</li>
 					</ul>
 					
@@ -116,48 +178,40 @@
 				</div>
 			</div>
 	   		<div class="product_more">
-	          		<h2>You May Also Like</h2>
-				<div class="card">
-					<img src="/images/blue-lime-01.png" alt="Product Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Ice Holiday</h5>
-                        <p class="card-text">Flashy Pink</p>
-                    </div>
-					<div class="card-body">
-                        <h2 "${product.price}"></h2>
-						<addButton>Add to Cart</addButton>
-                    </div>
-				</div>
-				<div class="card">
-					<img src="/images/blue-lime-01.png" alt="Product Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Ice Holiday</h5>
-                        <p class="card-text">Flashy Pink</p>
-                    </div>
-					<div class="card-body">
-                        <h2 "${product.price}"></h2>
-						<addButton>Add to Cart</addButton>
-                    </div>
-				</div>
+          		<h1 class="recommendTitle">You May Also Like</h1>
+					<tr th:each="product, productStat: ${products}" th:if="${product.id!=currentProduct.id}" th:unless="${productStat.count>4}">
+						<div class="card" >
+							<img th:src="@{'/images/' + ${product.imgFilenames[0]}}"  alt="Product Image">
+			                <div class="card-body">
+								<a th:href="@{'/product/detail/' + ${product.id}}">
+									<h2 class="card-title" th:text="${product.collection}"></h2>
+								</a>
+								<h3 class="card-text" th:text="${product.colour}"></h3>
+			                </div>
+							<div class="card-body">
+			                    <h2 th:text="RM + ${product.price}"></h2>
+								<a class="purchaseButton" th:href="@{'/checkout/' + ${product.id}}">Purchase Now</a>
+			                </div>
+						</div>
+					</tr>
 	   		</div>
 		</div>
 		
-		<br>
-		
 		<div class="others-container">
+			<br>
 		  	<div class"row">
 				<div classs="column">
 					<div class="others-card">
 						<div class="othersCard-column">
-							<img class="card-img" src="/images/delivery.png" alt="Others Image">
+							<img class="card-img" src="/icon/delivery.png" alt="Others Image">
 							<p>Free and Quick Delivery</p>
 						</div>
 						<div class="othersCard-column">
-							<img class="card-img" src="/images/warranty.png" alt="Others Image">
+							<img class="card-img" src="/icon/warranty.png" alt="Others Image">
 							<p>2 Years Warranty</p>					
 						</div>
 						<div class="othersCard-column">
-							<img class="card-img" src="/images/refund.png" alt="Others Image">
+							<img class="card-img" src="/icon/refund.png" alt="Others Image">
 							<p>Satisfied Or Refund</p>					
 						</div>
 				  	</div>
@@ -165,10 +219,6 @@
 			</div>
 		</div>
 		
-		<div class="product-container">
-			<tr th:each="product: ${products}">
-				<td th:text="${product.colour}"></td>
-			</tr>
-		</div>
+		<div th:replace="footer"></div>
 	</body>
 </html>

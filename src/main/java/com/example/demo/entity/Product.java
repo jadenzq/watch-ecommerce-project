@@ -1,13 +1,16 @@
 package com.example.demo.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @Table(name="products")
@@ -40,13 +43,19 @@ public class Product {
 	
 	@Column(name="stock", nullable=false)
 	private Integer stock;
-
+	
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	private List<Review> review;
+	
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	private List<Order> order;
+	
 	
 	public Product() {}
 
-
+	
 	public Product(String collection, String description, String colour, String plating, Double weight,
-			ArrayList<String> imgFilenames, Double price, Integer stock) {
+			ArrayList<String> imgFilenames, Double price, Integer stock, List<Review> review, List<Order> order) {
 		super();
 		this.collection = collection;
 		this.description = description;
@@ -56,9 +65,11 @@ public class Product {
 		this.imgFilenames = imgFilenames;
 		this.price = price;
 		this.stock = stock;
+		this.review = review;
+		this.order = order;
 	}
 
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -148,6 +159,24 @@ public class Product {
 		this.stock = stock;
 	}
 	
+	public List<Review> getReview() {
+		return review;
+	}
+
+
+	public void setReview(List<Review> review) {
+		this.review = review;
+	}
+
+
+	public List<Order> getOrder() {
+		return order;
+	}
+
+
+	public void setOrder(List<Order> order) {
+		this.order = order;
+	}
 	
 	
 }

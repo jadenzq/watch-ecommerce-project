@@ -1,9 +1,12 @@
+
 package com.example.demo.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 import com.example.demo.entity.Review;
+
+import com.example.demo.entity.Product;
 
 public interface ReviewService {
 	List<Review> getAllReviews();
@@ -13,4 +16,6 @@ public interface ReviewService {
 	LocalDateTime getCurrentTime();
 	
 	Review saveReview(Review review);
+	
+	List<Review> findByProduct(Product product);
 }

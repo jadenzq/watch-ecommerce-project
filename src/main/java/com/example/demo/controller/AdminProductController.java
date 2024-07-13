@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -100,19 +101,101 @@ public class AdminProductController {
 			
 		return "redirect:/admin/products";
 	}
+
 	
-	@GetMapping("/delete/product/{id}")
-	public String deleteProduct(@PathVariable("id") Long id ) {
-		productService.deleteProductById(id);
-		return "redirect:/admin/products";
-	}
-	
-	/*
 	@GetMapping("/edit/product/{id}")
 	public String editProduct(@PathVariable("id") Long id, Model model) {
 		Product product = productService.getProductById(id);
 		model.addAttribute("product", product);
+		return "edit_product";
+	}
+	
+	
+	@PostMapping("/update/product/{id}")
+	public String updateProduct(
+			@PathVariable("id") Long id,
+			@ModelAttribute("product") Product product,
+			@RequestParam("image1") MultipartFile image1,
+			@RequestParam("image2") MultipartFile image2,
+			@RequestParam("image3") MultipartFile image3,
+			@RequestParam("image4") MultipartFile image4) {
+		
+		// retrieve the existing product
+		Product oldProduct = productService.getProductById(id);
+		// store image file
+		ArrayList<String> oldImageFilenames = oldProduct.getImgFilenames();
+		ArrayList<MultipartFile> imgFiles  = new ArrayList<>();
+		
+		// appending image files into a list
+		imgFiles.add(image1);
+		imgFiles.add(image2);
+		imgFiles.add(image3);
+		imgFiles.add(image4);
+		
+		
+		String imgUploadDir = "src/main/resources/static/images/";
+		
+		try {
+			Path uploadPath = Paths.get(imgUploadDir);
+			// create directory to store image
+			if(!Files.exists(uploadPath)) {
+				Files.createDirectories(uploadPath);
+			}
+			
+			try {
+				
+				for(int i=0; i<4; i++) { // loops 4 times to loop through all image inputs
+					MultipartFile image = imgFiles.get(i);
+					// if there contains image in any of the image inputs
+					// delete old image files and update imgFilenames
+					if (!image.isEmpty()) {
+						InputStream inputStream = image.getInputStream();
+						Files.copy(inputStream, Paths.get(imgUploadDir + image.getOriginalFilename()),
+								StandardCopyOption.REPLACE_EXISTING);
+						// delete old image file
+						Files.deleteIfExists(Paths.get(imgUploadDir + oldImageFilenames.get(i)));
+						// replace old image filename with new filename
+						oldImageFilenames.remove(i);
+						oldImageFilenames.add(i, image.getOriginalFilename());
+					}
+				}
+			} catch (Exception ex) {
+				System.out.println("Exception: " + ex.getMessage());
+			}
+		} catch (Exception ex) {
+			System.out.println("Exception: " + ex.getMessage());
+		}
+		
+		// update image filenames and other properties
+		oldProduct.setImgFilenames(oldImageFilenames);
+		oldProduct.setId(id);
+		oldProduct.setCollection(product.getCollection());
+		oldProduct.setColour(product.getColour());
+		oldProduct.setDescription(product.getDescription());
+		oldProduct.setPlating(product.getPlating());
+		oldProduct.setPrice(product.getPrice());
+		oldProduct.setStock(product.getStock());
+		oldProduct.setWeight(product.getWeight());
+		
+		// save product to database
+		productService.updateProduct(oldProduct);
+			
 		return "redirect:/admin/products";
 	}
-	*/
+	
+	
+	@GetMapping("/delete/product/{id}")
+	public String deleteProduct(@PathVariable("id") Long id ) throws IOException {
+		
+		Product product = productService.getProductById(id);
+		ArrayList<String> imgFilenames = product.getImgFilenames();
+		String imgUploadDir = "src/main/resources/static/images/";
+		// delete the images
+		for (String imgFilename : imgFilenames) {
+			Files.deleteIfExists(Paths.get(imgUploadDir + imgFilename));
+		}
+		// delete the product from database
+		productService.deleteProductById(id);
+		return "redirect:/admin/products";
+	}
 }
