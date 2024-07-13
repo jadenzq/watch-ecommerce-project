@@ -74,6 +74,11 @@ p {
 	padding-left: 50px;
 }
 
+.product-container .other-product p{
+	font-size: 30px;
+	font-weight: bold;
+}
+
 .gallery {
     position: relative;
     margin:auto;

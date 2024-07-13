@@ -32,7 +32,7 @@ public class OrderController {
 	}
 	
 	@GetMapping("/checkout/{id}")
-	public String createOrderForm(@PathVariable("id") Long id, Model model) {
+	public String createOrderForm(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes) {
 		Order order = new Order();
 		Product product = productService.getProductById(id);
 		if(product.getStock()>=1) {
@@ -42,7 +42,7 @@ public class OrderController {
 		return "checkout";
 		}
 		else{
-			model.addAttribute("nostock", "Currently out of stock! Kindly view other products.");
+			redirectAttributes.addFlashAttribute("nostock", "Currently out of stock! Kindly view other products.");
 			return "redirect:/product/detail/"+id;
 		}
 	}
