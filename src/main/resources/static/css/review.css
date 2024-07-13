@@ -24,6 +24,7 @@
 	 border-bottom: 1px solid #ddd;
 	 color: white;
 	 font-size: 15px;
+	 text-align: left;
 }
 
 #review-section{
@@ -129,7 +130,7 @@ textarea{
 }
 
 .blue{
-	background-color: #301e67;
+	background-color: #222;
 	width: 95%;
 	margin: auto;
 	margin-bottom: 20px;

@@ -38,8 +38,31 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
+    
+    @Column(nullable = false)
+    private String role;
+    
+    
+    public User() {}
+    
 
-    // Getters and Setters
+    public User(String firstName, String lastName, String address, String state, String postcode, String country,
+			String telephone, String username, String password, String email, String role) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.state = state;
+		this.postcode = postcode;
+		this.country = country;
+		this.telephone = telephone;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.role = role;
+	}
+
+	// Getters and Setters
     public Long getId() {
         return id;
     }
@@ -127,4 +150,14 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+    
+    
 }

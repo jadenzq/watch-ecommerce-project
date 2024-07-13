@@ -45,7 +45,11 @@ public class UserController {
     public String loginUser(@ModelAttribute("user") User user, Model model) {
         User existingUser = userService.findByUsername(user.getUsername());
         if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
-            return "redirect:/home"; // Redirect to a welcome page or dashboard
+        	if(existingUser.getRole().equals("Admin")) {
+        		return "redirect:/admin/products"; // Redirect to admin page
+        	} else {
+        		return "redirect:/home"; // Redirect to buyer home page
+        	}
         } else {
             model.addAttribute("error", "Invalid username or password");
             return "login";
